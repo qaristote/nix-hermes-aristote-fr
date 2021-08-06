@@ -2,7 +2,8 @@
 
 {
   networking = {
-    hostName = "hermes.aristote.fr";
+    hostName = "hermes";
+    fqdn = "aristote.fr";
 
     useDHCP = false;
     interfaces.ens3.ipv4.addresses = [{

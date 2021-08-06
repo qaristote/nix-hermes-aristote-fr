@@ -2,10 +2,10 @@
 
 buildGoModule rec {
   pname = "filtron";
-  version = "1.0.0";
+  version = "0.2.0";
 
   src = fetchFromGitHub {
-    owner = "asciimo";
+    owner = "asciimoo";
     repo = "filtron";
     rev = "v${version}";
     sha256 = "18d3h0i2sfqbc0bjx26jm2n9f37zwp8z9z4wd17sw7nvkfa72a26";

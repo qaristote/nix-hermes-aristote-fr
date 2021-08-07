@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 let
   ports = {
@@ -26,7 +26,7 @@ in {
         '';
       };
       "/static/" = { alias = "${pkgs.searx}/share/static/"; };
-      "/morty" = {
+      "/morty" = lib.mkIf (config.services.morty.enable) {
         proxyPass = "http://127.0.0.1:${toString ports.morty}";
         extraConfig = ''
           proxy_set_header Host            $host;

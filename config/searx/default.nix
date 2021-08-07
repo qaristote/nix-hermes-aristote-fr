@@ -86,28 +86,6 @@ in {
   };
 
   # Filtron
-  # users.users.filtron = {
-  #   description = "Filtron daemon user";
-  #   group = "filtron";
-  #   isSystemUser = true;
-  # };
-  # users.groups.filtron = { };
-
-  # systemd.services.filtron = {
-  #   wantedBy = [ "multi-user.target" ];
-  #   after = [ "network.target" ];
-  #   description = "Start a filtron instance.";
-  #   serviceConfig = {
-  #     User = "filtron";
-  #     ExecStart = ''
-  #       ${pkgs.personal.filtron}/bin/filtron -rules ${./filtron.json} \
-  #               -api "127.0.0.1:${toString ports.filtron.api}" \
-  #               -listen "127.0.0.1:${toString ports.filtron.listen}" \
-  #               -target "127.0.0.1:${toString ports.searx}"
-  #     '';
-  #   };
-  # };
-
   services.filtron = {
     enable = true;
     rules = [

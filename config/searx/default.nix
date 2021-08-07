@@ -148,19 +148,19 @@ in {
               }
             ];
           }
-          {
-            name = "suspiciously Connection=close header";
-            filters = [ "Header:Connection=close" ];
-            limit = 0;
-            stop = true;
-            actions = [
-              { name = "log"; }
-              {
-                name = "block";
-                params = { message = "Rate limit exceeded"; };
-              }
-            ];
-          }
+          # {
+          #   name = "suspiciously Connection=close header";
+          #   filters = [ "Header:Connection=close" ];
+          #   limit = 0;
+          #   stop = true;
+          #   actions = [
+          #     { name = "log"; }
+          #     {
+          #       name = "block";
+          #       params = { message = "Rate limit exceeded"; };
+          #     }
+          #   ];
+          # }
           {
             name = "IP limit";
             interval = 61;

@@ -22,6 +22,14 @@
   services.nginx = {
     enable = true;
     virtualHosts = {
+      # return 444 when trying to connect directly through the IP address
+      "_" = {
+        default = true;
+        extraConfig = ''
+          return 444;
+        '';
+      };
+
       "quentin.aristote.fr" = { root = "${pkgs.personal.academic-webpage}"; };
     };
   };

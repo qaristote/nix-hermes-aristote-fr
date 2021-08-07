@@ -19,6 +19,11 @@
     };
   };
 
+  security.acme = {
+    acceptTerms = true;
+    email = "quentin@aristote.fr";
+  };
+
   services.nginx = {
     enable = true;
     virtualHosts = {
@@ -30,7 +35,11 @@
         '';
       };
 
-      "quentin.aristote.fr" = { root = "${pkgs.personal.academic-webpage}"; };
+      "quentin.aristote.fr" = {
+        root = "${pkgs.personal.academic-webpage}";
+        forceSSL = true;
+        enableACME = true;
+      };
     };
   };
 

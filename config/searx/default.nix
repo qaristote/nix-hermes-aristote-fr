@@ -79,6 +79,30 @@ in {
         "Tracker URL remover"
         "Vim-like hotkeys"
       ];
+      engines = let
+        disable = names:
+          map (name: {
+            inherit name;
+            disabled = true;
+          }) names;
+      in disable [
+        # general
+        "bing"
+        "currency"
+        "dictzone"
+        # files
+        "btdigg"
+        "torrentz"
+        # images
+        "bing images"
+        "ccengine"
+        "library of congress"
+        "qwant images"
+        # it
+        "hoogle"
+        # map
+        "photon"
+      ];
     };
     runInUwsgi = true;
     uwsgiConfig = {

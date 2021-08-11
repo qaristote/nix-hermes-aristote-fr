@@ -11,7 +11,7 @@
       prefixLength = 16;
     }];
     defaultGateway = "93.95.228.1";
-    nameservers = [ "93.95.224.28" "93.95.224.29" ];
+    nameservers = [ "93.95.228.28" "93.95.228.29" ];
 
     firewall = {
       enable = true;

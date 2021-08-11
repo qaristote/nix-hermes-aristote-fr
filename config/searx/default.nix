@@ -63,7 +63,7 @@ in {
         method = "GET";
       };
       ui = {
-        # default_locale = "fr";
+        # default_locale = "en";
         theme_args = { oscar_style = "pointhi"; };
       };
       # result_proxy = {

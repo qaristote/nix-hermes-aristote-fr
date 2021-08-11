@@ -54,7 +54,7 @@ in {
       };
       search = {
         autocomplete = "dbpedia";
-        default_lang = "fr-FR";
+        default_lang = "en-EN";
       };
       server = {
         secret_key = "@SECRET_KEY@";
@@ -63,7 +63,6 @@ in {
         method = "GET";
       };
       ui = {
-        # default_locale = "fr";
         theme_args = { oscar_style = "pointhi"; };
       };
       # result_proxy = {

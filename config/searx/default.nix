@@ -100,7 +100,7 @@ in {
         # map
         "photon"
       ]) ++ [{
-        name = "emojipedia";
+        name = "Emojipedia";
         engine = "xpath";
         search_url = "https://emojipedia.org/search/?q={query}";
         url_xpath = ''//ol[@class="search-results"]/li/h2/a/@href'';

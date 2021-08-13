@@ -99,24 +99,45 @@ in {
         "hoogle"
         # map
         "photon"
-      ]) ++ [{
-        name = "emojipedia";
-        engine = "xpath";
-        search_url = "https://emojipedia.org/search/?q={query}";
-        url_xpath = ''//ol[@class="search-results"]/li/h2/a/@href'';
-        title_xpath = ''//ol[@class="search-results"]/li/h2/a'';
-        content_xpath = ''//ol[@class="search-results"]/li/p'';
-        shortcut = "emoji";
-        disabled = true;
-        about = {
-          website = "https://emojipedia.org/";
-          wikidata_id = "Q22908129";
-          official_api_documentation = "";
-          use_official_api = false;
-          require_api_key = false;
-          results = "HTML";
-        };
-      }];
+      ]) ++ [
+        {
+          name = "emojipedia";
+          engine = "xpath";
+          search_url = "https://emojipedia.org/search/?q={query}";
+          url_xpath = ''//ol[@class="search-results"]/li/h2/a/@href'';
+          title_xpath = ''//ol[@class="search-results"]/li/h2/a'';
+          content_xpath = ''//ol[@class="search-results"]/li/p'';
+          shortcut = "emoji";
+          disabled = true;
+          about = {
+            website = "https://emojipedia.org/";
+            wikidata_id = "Q22908129";
+            official_api_documentation = "";
+            use_official_api = false;
+            require_api_key = false;
+            results = "HTML";
+          };
+        }
+        {
+          name = "AlternativeTo";
+          engine = "xpath";
+          search_url = "https://alternativeto.net/browse/search?q={query}";
+          url_xpath = ''//div[class="row app-list-item"]/div/h3/a/@href'';
+          title_xpath = ''//div[class="row app-list-item"]/div/h3/a'';
+          content_xpath = ''//div[class="row app-list-item"]/div[class="itemDesc read-more-box"]/p'';
+          shortcut = "a2";
+          categories = "it";
+          disabled = true;
+          about = {
+            website = "https://alternativeto.net";
+            wikidata_id = "Q3613175";
+            official_api_documentation = "";
+            use_official_api = false;
+            require_api_key = false;
+            results = "HTML";
+          };
+        }
+      ];
     };
     runInUwsgi = true;
     uwsgiConfig = {

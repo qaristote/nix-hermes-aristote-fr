@@ -99,24 +99,45 @@ in {
         "hoogle"
         # map
         "photon"
-      ]) ++ [{
-        name = "emojipedia";
-        engine = "xpath";
-        search_url = "https://emojipedia.org/search/?q={query}";
-        url_xpath = ''//ol[@class="search-results"]/li/h2/a/@href'';
-        title_xpath = ''//ol[@class="search-results"]/li/h2/a'';
-        content_xpath = ''//ol[@class="search-results"]/li/p'';
-        shortcut = "emoji";
-        disabled = true;
-        about = {
-          website = "https://emojipedia.org/";
-          wikidata_id = "Q22908129";
-          official_api_documentation = "";
-          use_official_api = false;
-          require_api_key = false;
-          results = "HTML";
-        };
-      }];
+      ]) ++ [
+        {
+          name = "Emojipedia";
+          engine = "xpath";
+          search_url = "https://emojipedia.org/search/?q={query}";
+          url_xpath = ''//ol[@class="search-results"]/li/h2/a/@href'';
+          title_xpath = ''//ol[@class="search-results"]/li/h2/a'';
+          content_xpath = ''//ol[@class="search-results"]/li/p'';
+          shortcut = "emoji";
+          disabled = true;
+          about = {
+            website = "https://emojipedia.org/";
+            wikidata_id = "Q22908129";
+            official_api_documentation = "";
+            use_official_api = false;
+            require_api_key = false;
+            results = "HTML";
+          };
+        }
+        {
+          name = "Bibliothèques de Paris";
+          engine = "xpath";
+          search_url =
+            "https://bibliotheques.paris.fr/Default/search.aspx?QUERY={query}";
+          url_xpath = ''
+            //div[claws="notice_corps media col-sm-9 col-md-10"]/div[class="vignette_container"]/div[class="vignette_document"]/a/@href'';
+          title_xpath = ''//div[claws="notice_corps media col-sm-9 col-md-10"]/div[class="media-body"]/h3'';
+          content_xpath = ''//div[claws="notice_corps media col-sm-9 col-md-10"]/div[class="media-body"]/text()'';
+          shortcut = "bibli";
+          disabled = true;
+          about = {
+            website = "https://bibliotheques.paris.fr/";
+           official_api_documentation = "";
+           use_official_api = false;
+           require_api_key = false;
+           results = "HTML";
+          };
+        }
+      ];
     };
     runInUwsgi = true;
     uwsgiConfig = {

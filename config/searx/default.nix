@@ -62,9 +62,7 @@ in {
         http_protocol_version = "1.0";
         method = "GET";
       };
-      ui = {
-        theme_args = { oscar_style = "pointhi"; };
-      };
+      ui = { theme_args = { oscar_style = "pointhi"; }; };
       # result_proxy = {
       #   url = "http://searx.aristote.fr/morty";
       #   key = ''!!binary | "${keys.morty}"'';
@@ -84,7 +82,7 @@ in {
             inherit name;
             disabled = true;
           }) names;
-      in disable [
+      in (disable [
         # general
         "bing"
         "currency"
@@ -101,7 +99,24 @@ in {
         "hoogle"
         # map
         "photon"
-      ];
+      ]) ++ [{
+        name = "emojipedia";
+        engine = "xpath";
+        search_url = "https://emojipedia.org/search/q?={query}";
+        url_xpath = ''//ol[@class="search-results"]/li/h2/a/@href'';
+        title_xpath = ''//ol[@class="search-results"]/li/h2/a/text()'';
+        content_xpath = ''//ol[@class="search-results"]/li/p/'';
+        shortcut = "emoji";
+        disabled = true;
+        about = {
+          website = "https://emojipedia.org/";
+          wikidata_id = "Q22908129";
+          official_api_documentation = "";
+          use_official_api = false;
+          require_api_key = false;
+          results = HTML;
+        };
+      }];
     };
     runInUwsgi = true;
     uwsgiConfig = {

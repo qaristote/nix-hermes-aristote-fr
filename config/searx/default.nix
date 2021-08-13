@@ -114,7 +114,7 @@ in {
           official_api_documentation = "";
           use_official_api = false;
           require_api_key = false;
-          results = HTML;
+          results = "HTML";
         };
       }];
     };

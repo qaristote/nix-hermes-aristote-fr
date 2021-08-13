@@ -122,9 +122,10 @@ in {
           name = "AlternativeTo";
           engine = "xpath";
           search_url = "https://alternativeto.net/browse/search?q={query}";
-          url_xpath = ''//li/article[class="row app-list-item"]/div/h3/a/@href'';
-          title_xpath = ''//li/article[class="row app-list-item"]/div/h3/a'';
-          content_xpath = ''//li/article[class="row app-list-item"]/div[class="itemDesc read-more-box"]/p'';
+	        results_xpath = ''//article[@class="row app-list-item"]/div[@class="col-xs-10 col-sm-10 col-md-11 col-lg-offset-1 col-lg-11"]'';
+          url_xpath = ''./h3/a/@href'';
+          title_xpath = ''./h3/a'';
+          content_xpath = ''./div[@class="itemDesc read-more-box"]/p[@class="text"]'';
           shortcut = "a2";
           categories = "it";
           disabled = true;

@@ -124,9 +124,9 @@ in {
           search_url =
             "https://bibliotheques.paris.fr/Default/search.aspx?QUERY={query}";
           url_xpath = ''
-            //div[claws="notice_corps media col-sm-9 col-md-10"]/div[class="vignette_container"]/div[class="vignette_document"]/a/@href'';
-          title_xpath = ''//div[claws="notice_corps media col-sm-9 col-md-10"]/div[class="media-body"]/h3'';
-          content_xpath = ''//div[claws="notice_corps media col-sm-9 col-md-10"]/div[class="media-body"]/text()'';
+            //div[class="notice_corps media col-sm-9 col-md-10"]/div[class="vignette_container"]/div[class="vignette_document"]/a/@href'';
+          title_xpath = ''//div[class="notice_corps media col-sm-9 col-md-10"]/div[class="media-body"]/h3'';
+          content_xpath = ''//div[class="notice_corps media col-sm-9 col-md-10"]/div[class="media-body"]/text()'';
           shortcut = "bibli";
           disabled = true;
           about = {

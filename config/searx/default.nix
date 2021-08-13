@@ -102,10 +102,10 @@ in {
       ]) ++ [{
         name = "emojipedia";
         engine = "xpath";
-        search_url = "https://emojipedia.org/search/q?={query}";
+        search_url = "https://emojipedia.org/search/?q={query}";
         url_xpath = ''//ol[@class="search-results"]/li/h2/a/@href'';
-        title_xpath = ''//ol[@class="search-results"]/li/h2/a/text()'';
-        content_xpath = ''//ol[@class="search-results"]/li/p/'';
+        title_xpath = ''//ol[@class="search-results"]/li/h2/a'';
+        content_xpath = ''//ol[@class="search-results"]/li/p'';
         shortcut = "emoji";
         disabled = true;
         about = {

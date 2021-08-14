@@ -24,7 +24,7 @@ in {
             # proxy_set_header X-Script-Name   /;
           '';
         };
-        "/static/".alias = "${pkgs.searx}/sjare/static";
+        "/static/".alias = "${pkgs.searx}/share/static/";
       };
       forceSSL = true;
       enableACME = true;

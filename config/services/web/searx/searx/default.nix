@@ -12,7 +12,7 @@ in {
     runInUwsgi = true;
     uwsgiConfig = {
       cache2 = "name=searxcache,items=2000,blocks=2000,blocksize=4096,bitmap=1";
-      http = "http://${cfg.filtron.target.address}:${toString cfg.filtron.target.port}";
+      http = ":${toString cfg.filtron.target.port}";
     };
 
     environmentFile = /etc/searx/secrets;

@@ -1,6 +1,12 @@
-{ ... }:
+{ lib, config, ... }:
 
-{
+let cfg = config.services.ihatemoney;
+in {
+  services.nginx.virtualHosts."quentin.aristote.fr".locations =
+    lib.mkIf cfg.enable {
+      "/money/".proxyPass = "http://127.0.0.1${cfg.uwsgiConfig}";
+    };
+
   services.ihatemoney = {
     enable = true;
     enableAdminDashboard = true;
@@ -12,5 +18,4 @@
     '';
   };
 
-  services.nginx.virtualHosts."quentin.aristote.fr".locations."/money/".proxyPass = "http://127.0.0.1:8000/";
 }

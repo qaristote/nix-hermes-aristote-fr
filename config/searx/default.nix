@@ -54,7 +54,7 @@ in {
       };
       search = {
         autocomplete = "dbpedia";
-        default_lang = "en-EN";
+        default_lang = "fr-FR";
       };
       server = {
         secret_key = "@SECRET_KEY@";

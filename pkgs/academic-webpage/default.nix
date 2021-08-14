@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   pname = "academic-webpage";
-  version = "2021-08-07";
+  version = "2021-08-14";
 
   buildInputs = with pkgs; [ hugo ];
 
@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
     owner = "qaristote";
     repo = "academic-webpage";
     rev = "${version}";
-    sha256 = sha256:12f1ybxq6m9n5pr3cfx1d8svjw0f750pdy6b7rmv83i3gymsw1i0;
+    sha256 = sha256:1l8gmca95d20yc5fmd44qm3n758pf912y7q0zvr4g73dbf03h9ba;
     fetchSubmodules = true;
   };
 

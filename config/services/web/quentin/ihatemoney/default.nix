@@ -18,4 +18,12 @@ in {
     '';
   };
 
+  services.opensmtpd = lib.mkIf cfg.enable {
+    enable = true;
+    serverConfiguration = ''
+      listen on lo
+      action block mda "cat >/dev/null"
+      match from any for any action block
+    '';
+  };
 }

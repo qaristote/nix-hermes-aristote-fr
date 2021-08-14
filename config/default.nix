@@ -6,6 +6,7 @@
     (modulesPath + "/profiles/minimal.nix")
     ./boot.nix
     ./environment.nix
+    ./ihatemoney.nix
     ./hardware-configuration.nix
     ./networking.nix
     ./searx

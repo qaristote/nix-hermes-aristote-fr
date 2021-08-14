@@ -36,7 +36,7 @@
       };
 
       "quentin.aristote.fr" = {
-        root = "${pkgs.personal.academic-webpage}";
+        locations."/".root = "${pkgs.personal.academic-webpage}";
         forceSSL = true;
         enableACME = true;
       };

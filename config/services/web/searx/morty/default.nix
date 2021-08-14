@@ -16,7 +16,5 @@ in {
       };
     };
 
-  services.morty = {
-    enable = false;
-  };
+  services.morty = { enable = false; };
 }

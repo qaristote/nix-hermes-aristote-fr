@@ -1,9 +1,7 @@
 { pkgs, lib, config, ... }:
 
 {
-  import = [
-    ./ihatemoney
-  ];
+  imports = [ ./ihatemoney ];
 
   services.nginx.virtualHosts."quentin.aristote.fr" = {
     locations."/".root = "${pkgs.personal.academic-webpage}";

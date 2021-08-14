@@ -12,7 +12,7 @@ in {
     runInUwsgi = true;
     uwsgiConfig = {
       cache2 = "name=searxcache,items=2000,blocks=2000,blocksize=4096,bitmap=1";
-      http = "$http://${cfg.filtron.target.address}:${toString cfg.filtron.target.port}";
+      http = "http://${cfg.filtron.target.address}:${toString cfg.filtron.target.port}";
     };
 
     environmentFile = /etc/searx/secrets;
@@ -36,7 +36,7 @@ in {
       ui = { theme_args = { oscar_style = "pointhi"; }; };
       result_proxy = lib.mkIf cfg.morty.enable {
         url = "http://searx.aristote.fr/morty";
-        key = ''!!binary | "${keys.morty}"'';
+        key = ''!!binary | "${cfg.morty.key}"'';
       };
       enabled_plugins = [
         "Open Access DOI rewrite"

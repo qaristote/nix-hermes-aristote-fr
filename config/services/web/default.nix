@@ -1,10 +1,7 @@
 { ... }:
 
 {
-  import = [
-    ./quentin
-    ./searx
-  ];
+  imports = [ ./quentin ./searx ];
 
   security.acme = {
     acceptTerms = true;
@@ -17,7 +14,7 @@
     virtualHosts."_" = {
       default = true;
       extraConfig = ''
-        return 444
+        return 444;
       '';
     };
   };

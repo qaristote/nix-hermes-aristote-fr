@@ -4,7 +4,7 @@ let cfg = config.services.ihatemoney;
 in {
   services.nginx.virtualHosts."quentin.aristote.fr".locations =
     lib.mkIf cfg.enable {
-      "/money/".proxyPass = "http://127.0.0.1${cfg.uwsgiConfig}";
+      "/money/".proxyPass = "http://127.0.0.1${cfg.uwsgiConfig.http}";
     };
 
   services.ihatemoney = {

@@ -17,5 +17,9 @@
         return 444;
       '';
     };
+    appendHttpConfig = ''
+      types_hash_max_size 2048;
+      access_log /dev/null;
+    '';
   };
 }

@@ -101,7 +101,7 @@ in {
         "photon"
       ]) ++ [
         {
-          name = "Emojipedia";
+          name = "emojipedia";
           engine = "xpath";
           search_url = "https://emojipedia.org/search/?q={query}";
           url_xpath = ''//ol[@class="search-results"]/li/h2/a/@href'';
@@ -119,7 +119,7 @@ in {
           };
         }
         {
-          name = "AlternativeTo";
+          name = "alternativeTo";
           engine = "xpath";
           paging = true;
           search_url = "https://alternativeto.net/browse/search?q={query}&p={pageno}";

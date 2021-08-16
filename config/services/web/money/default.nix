@@ -5,7 +5,7 @@ in {
   services.nginx.virtualHosts."money.aristote.fr" = lib.mkIf cfg.enable {
     forceSSL = true;
     enableACME = true;
-    "/".proxyPass = "http://127.0.0.1${cfg.uwsgiConfig.http}/";
+    locations."/".proxyPass = "http://127.0.0.1${cfg.uwsgiConfig.http}/";
   };
 
   services.ihatemoney = {

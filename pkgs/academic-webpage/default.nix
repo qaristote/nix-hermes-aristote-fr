@@ -9,10 +9,10 @@ stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "qaristote";
     repo = "academic-webpage";
-    rev = "${version}";
-    sha256 = sha256:1l8gmca95d20yc5fmd44qm3n758pf912y7q0zvr4g73dbf03h9ba;
+    rev = "51211cc9521fc7ff32e9d0e0315a45904f909f15";
+    sha256 = "1874v3x7ks8lqiivvacdfqznlpnqizdk559h8kc5swlrh1pc7bzx";
     fetchSubmodules = true;
-  };
+  } 
 
   phases = [ "unpackPhase" "buildPhase" ];
 

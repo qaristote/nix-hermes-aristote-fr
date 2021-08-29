@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
     rev = "51211cc9521fc7ff32e9d0e0315a45904f909f15";
     sha256 = "1874v3x7ks8lqiivvacdfqznlpnqizdk559h8kc5swlrh1pc7bzx";
     fetchSubmodules = true;
-  } 
+  };
 
   phases = [ "unpackPhase" "buildPhase" ];
 

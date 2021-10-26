@@ -125,6 +125,7 @@ in {
           title_xpath = "//li/a";
           content_xpath = "//li/a";
           shortcut = "nlab";
+          timeout = 10.0;
           categories = "science";
           disabled = true;
           about = {

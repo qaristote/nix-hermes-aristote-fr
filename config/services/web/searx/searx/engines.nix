@@ -15,7 +15,7 @@ let
     baseUrl + "?${queryKeyword}={query}"
     # an invisible whitespace is added at the end of the query to prevent redirections
     + (optionalString preventRedirect "%E2%80%8E")
-    + (optionalString (pageKeyword != null) "&${pageKeyword}={page_no}");
+    + (optionalString (pageKeyword != null) "&${pageKeyword}={pageno}");
 in {
   services.searx.settings.engines = (disable [
     # general

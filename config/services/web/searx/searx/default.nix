@@ -6,6 +6,9 @@ let
     filtron = config.services.filtron;
   };
 in {
+
+  imports = [ ./engines.nix ];
+
   services.searx = {
     enable = true;
 
@@ -47,7 +50,6 @@ in {
         "Tracker URL remover"
         "Vim-like hotkeys"
       ];
-      engines = import ./engines.nix;
     };
   };
 }

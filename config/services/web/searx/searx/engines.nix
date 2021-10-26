@@ -17,7 +17,7 @@ let
     + (optionalString preventRedirect "%E2%80%8E")
     + (optionalString (pageKeyword != null) "&${pageKeyword}={page_no}");
 in {
-  services.searx.settings.engine = (disable [
+  services.searx.settings.engines = (disable [
     # general
     "bing"
     "currency"

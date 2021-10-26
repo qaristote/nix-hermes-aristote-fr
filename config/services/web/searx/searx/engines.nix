@@ -31,7 +31,8 @@ in (disable [
     name = "alternativeto";
     engine = "xpath";
     paging = true;
-    search_url = "https://alternativeto.net/browse/search?q={query}&p={pageno}";
+    # an invisible whitespace is added at the end of the query to prevent redirections
+    search_url = "https://alternativeto.net/browse/search?q={query}%E2%80%8E&p={pageno}";
     results_xpath = ''
       //article[@class="row app-list-item"]/div[@class="col-xs-10 col-sm-10 col-md-11 col-lg-offset-1 col-lg-11"]'';
     url_xpath = "./h3/a/@href";

@@ -41,7 +41,7 @@ in (disable [
     categories = "it";
     disabled = true;
     about = {
-      website = "https://alternativeto.net";
+      website = "https://alternativeto.net/";
       wikidata_id = "Q3613175";
       official_api_documentation = "";
       use_official_api = false;

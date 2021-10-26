@@ -28,7 +28,7 @@ in (disable [
   "duckduckgo"
 ]) ++ [
   { # AlternativeTo
-    name = "alternativeTo";
+    name = "alternativeto";
     engine = "xpath";
     paging = true;
     search_url = "https://alternativeto.net/browse/search?q={query}&p={pageno}";
@@ -68,7 +68,7 @@ in (disable [
     };
   }
   {
-    name = "nLab";
+    name = "nlab";
     engine = "xpath";
     search_url = "https://ncatlab.org/nlab/search?query={query}";
     url_xpath = "//li/a/@href";

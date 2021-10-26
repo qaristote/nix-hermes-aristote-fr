@@ -6,7 +6,6 @@ let
     filtron = config.services.filtron;
   };
 in {
-
   imports = [ ./engines.nix ];
 
   services.searx = {

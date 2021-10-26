@@ -24,7 +24,7 @@ in {
         enable_stats = false;
       };
       search = {
-        autocomplete = "dbpedia";
+        autocomplete = "wikipedia";
         default_lang = "fr-FR";
       };
       server = {

@@ -6,6 +6,12 @@ let
     }) names;
   enable = overrideDisabled false;
   disable = overrideDisabled true;
+
+  makeSearchUrl = { baseUrl, queryKeyword ? "query", pageKeyword ? null
+    , preventRedirect ? false }:
+    baseUrl + "?${queryKeyword}={query}"
+    + (lib.optionalString preventRedirect "%E2%80%8E")
+    + (lib.optionalString (pageKeyword != null) "&${page_keyword}={page_no}");
 in (disable [
   # general
   "bing"
@@ -32,7 +38,12 @@ in (disable [
     engine = "xpath";
     paging = true;
     # an invisible whitespace is added at the end of the query to prevent redirections
-    search_url = "https://alternativeto.net/browse/search?q={query}%E2%80%8E&p={pageno}";
+    search_url = makeSearchUrl {
+      baseUrl = "https://alternativeto.net/browse/search";
+      queryKeyword = "q";
+      pageKeyword = "p";
+      preventRedirect = true;
+    };
     results_xpath = ''
       //article[@class="row app-list-item"]/div[@class="col-xs-10 col-sm-10 col-md-11 col-lg-offset-1 col-lg-11"]'';
     url_xpath = "./h3/a/@href";
@@ -54,10 +65,15 @@ in (disable [
     name = "emojipedia";
     engine = "xpath";
     # an invisible whitespace is added at the end of the query to prevent redirections
-    search_url = "https://emojipedia.org/search/?q={query}%E2%80%8E";
-    url_xpath = ''//ol[@class="search-results"]/li/h2/a/@href'';
-    title_xpath = ''//ol[@class="search-results"]/li/h2/a'';
-    content_xpath = ''//ol[@class="search-results"]/li/p'';
+    search_url = makeSearchUrl {
+      baseUrl = "https://emojipedia.org/search/";
+      queryKeyword = "q";
+      preventRedirect = true;
+    };
+    results_xpath = ''//ol[@class="search-results"]/li'';
+    url_xpath = "./h2/a/@href";
+    title_xpath = "./h2/a";
+    content_xpath = "./p";
     shortcut = "emoji";
     disabled = true;
     about = {
@@ -72,10 +88,11 @@ in (disable [
   {
     name = "nlab";
     engine = "xpath";
-    search_url = "https://ncatlab.org/nlab/search?query={query}";
-    url_xpath = "//li/a/@href";
-    title_xpath = "//li/a";
-    content_xpath = "//li/a";
+    search_url = makeSearchUrl { baseUrl = "https://ncatlab.org/nlab/search"; };
+    results_xpath = "//li/a";
+    url_xpath = "./@href";
+    title_xpath = ".";
+    content_xpath = ".";
     shortcut = "nlab";
     timeout = 10.0;
     categories = "science";

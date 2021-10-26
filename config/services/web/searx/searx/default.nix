@@ -25,7 +25,7 @@ in {
       };
       search = {
         autocomplete = "wikipedia";
-        default_lang = "fr-FR";
+        default_lang = "en-EN";
       };
       server = {
         secret_key = "@SECRET_KEY@";

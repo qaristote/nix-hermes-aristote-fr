@@ -113,6 +113,10 @@ in {
             results = "HTML";
           };
         }
+        {
+          name = "duckduckgo";
+          disabled = false;
+        }
       ];
     };
   };

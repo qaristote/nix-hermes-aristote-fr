@@ -47,7 +47,7 @@ in {
         "Tracker URL remover"
         "Vim-like hotkeys"
       ];
-      engines = ./engines.nix;
+      engines = import ./engines.nix;
     };
   };
 }

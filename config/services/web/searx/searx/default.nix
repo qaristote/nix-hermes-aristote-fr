@@ -117,6 +117,25 @@ in {
           name = "duckduckgo";
           disabled = false;
         }
+        {
+          name = "nLab";
+          engine = "xpath";
+          search_url = "https://ncatlab.org/nlab/search?query={query}";
+          url_xpath = "//li/a/@href";
+          title_xpath = "//li/a";
+          content_xpath = "//li/a";
+          shortcut = "nlab";
+          categories = "science";
+          disabled = true;
+          about = {
+            website = "https://ncatlab.org/";
+            wikidata_id = "Q6954693";
+            official_api_documentation = "";
+            use_official_api = false;
+            require_api_key = false;
+            results = "HTML";
+          };
+        }
       ];
     };
   };

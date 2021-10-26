@@ -53,7 +53,8 @@ in (disable [
   { # Emojipedia
     name = "emojipedia";
     engine = "xpath";
-    search_url = "https://emojipedia.org/search/?q={query}";
+    # an invisible whitespace is added at the end of the query to prevent redirections
+    search_url = "https://emojipedia.org/search/?q={query}%E2%80%8E";
     url_xpath = ''//ol[@class="search-results"]/li/h2/a/@href'';
     title_xpath = ''//ol[@class="search-results"]/li/h2/a'';
     content_xpath = ''//ol[@class="search-results"]/li/p'';

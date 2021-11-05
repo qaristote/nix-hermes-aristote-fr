@@ -32,13 +32,13 @@ let
     url_xpath = ''./div[@class="mw-search-result-heading"]/a/@href'';
     title_xpath = ''./div[@class="mw-search-result-heading"]/a'';
     content_xpath = ''./div[@class="searchresult"]'';
-    shortcut = "w{lang}";
+    shortcut = "w${lang}";
     categories = "general";
     disabled = true;
     about = {
-      website = "https://{lang}.wikipedia.org/";
+      website = "https://${lang}.wikipedia.org/";
       wikidata_id = "Q52";
-      official_api_documentation = "https://{lang}.wikipedia.org/api/";
+      official_api_documentation = "https://${lang}.wikipedia.org/api/";
       use_official_api = false;
       require_api_key = false;
       results = "HTML";

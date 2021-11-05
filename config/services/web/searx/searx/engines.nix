@@ -118,7 +118,7 @@ in {
       name = "wikipedia search";
       engine = "xpath";
       search_url = makeSearchUrl {
-        baseUrl = "https://fr.wikipedia.org/w/index.php";
+        baseUrl = "https://{language}.wikipedia.org/w/index.php";
         queryKeyword = "search";
         extraParameters = { fulltext = 1; };
       };

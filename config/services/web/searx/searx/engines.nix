@@ -11,11 +11,14 @@ let
   disable = overrideDisabled true;
 
   makeSearchUrl = { baseUrl, queryKeyword ? "query", pageKeyword ? null
-    , preventRedirect ? false }:
+    , preventRedirect ? false, extraParameters ? { } }:
     baseUrl + "?${queryKeyword}={query}"
     # an invisible whitespace is added at the end of the query to prevent redirections
     + (optionalString preventRedirect "%E2%80%8E")
-    + (optionalString (pageKeyword != null) "&${pageKeyword}={pageno}");
+    + (optionalString (pageKeyword != null) "&${pageKeyword}={pageno}")
+    + (concatStrings
+      (mapAttrsToList (name: value: "&${name}=${builtins.toString value}")
+        extraParameters));
 in {
   services.searx.settings.engines = (disable [
     # general
@@ -106,6 +109,30 @@ in {
         website = "https://ncatlab.org/";
         wikidata_id = "Q6954693";
         official_api_documentation = "";
+        use_official_api = false;
+        require_api_key = false;
+        results = "HTML";
+      };
+    }
+    {
+      name = "wikipedia search";
+      engine = "xpath";
+      search_url = {
+        baseUrl = "https://fr.wikipedia.org/w/index.php";
+        queryKeyword = "search";
+        extraParameters = { fulltext = 1; };
+      };
+      results_xpath = ''ul[@class="mw-search-results"]/li'';
+      url_xpath = ''./div[@class="mw-search-result-heading"]/a/@href'';
+      title_xpath = ''./div[@class="mw-search-result-heading"]/a'';
+      content_xpath = ''./div[@class="searchresult"]'';
+      shortcut = "w";
+      categories = "general";
+      disabled = true;
+      about = {
+        website = "https://www.wikipedia.org/";
+        wikidata_id = "Q52";
+        official_api_documentation = "https://en.wikipedia.org/api/";
         use_official_api = false;
         require_api_key = false;
         results = "HTML";

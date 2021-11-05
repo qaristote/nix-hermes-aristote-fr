@@ -21,9 +21,9 @@ let
         extraParameters));
 
   wikipediaSearch = lang: {
-    name = "wikipedia search";
+    name = "wikipedia search ${lang}";
     engine = "xpath";
-    search_url = {
+    search_url = makeSearchUrl {
       baseUrl = "https://${lang}.wikipedia.org/w/index.php";
       queryKeyword = "search";
       extraParameters = { fulltext = 1; };

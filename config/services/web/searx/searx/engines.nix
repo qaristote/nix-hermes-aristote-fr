@@ -122,7 +122,7 @@ in {
         queryKeyword = "search";
         extraParameters = { fulltext = 1; };
       };
-      results_xpath = ''ul[@class="mw-search-results"]/li'';
+      results_xpath = ''//ul[@class="mw-search-results"]/li'';
       url_xpath = ''./div[@class="mw-search-result-heading"]/a/@href'';
       title_xpath = ''./div[@class="mw-search-result-heading"]/a'';
       content_xpath = ''./div[@class="searchresult"]'';

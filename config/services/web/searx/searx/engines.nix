@@ -32,7 +32,7 @@ let
     url_xpath = ''./div[@class="mw-search-result-heading"]/a/@href'';
     title_xpath = ''./div[@class="mw-search-result-heading"]/a'';
     content_xpath = ''./div[@class="searchresult"]'';
-    shortcut = "w";
+    shortcut = "w{lang}";
     categories = "general";
     disabled = true;
     about = {

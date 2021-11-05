@@ -19,6 +19,31 @@ let
     + (concatStrings
       (mapAttrsToList (name: value: "&${name}=${builtins.toString value}")
         extraParameters));
+
+  wikipediaSearch = lang: {
+    name = "wikipedia search";
+    engine = "xpath";
+    search_url = {
+      baseUrl = "https://${lang}.wikipedia.org/w/index.php";
+      queryKeyword = "search";
+      extraParameters = { fulltext = 1; };
+    };
+    results_xpath = ''//ul[@class="mw-search-results"]/li'';
+    url_xpath = ''./div[@class="mw-search-result-heading"]/a/@href'';
+    title_xpath = ''./div[@class="mw-search-result-heading"]/a'';
+    content_xpath = ''./div[@class="searchresult"]'';
+    shortcut = "w";
+    categories = "general";
+    disabled = true;
+    about = {
+      website = "https://{lang}.wikipedia.org/";
+      wikidata_id = "Q52";
+      official_api_documentation = "https://{lang}.wikipedia.org/api/";
+      use_official_api = false;
+      require_api_key = false;
+      results = "HTML";
+    };
+  };
 in {
   services.searx.settings.engines = (disable [
     # general
@@ -114,29 +139,5 @@ in {
         results = "HTML";
       };
     }
-    {
-      name = "wikipedia search";
-      engine = "xpath";
-      search_url = makeSearchUrl {
-        baseUrl = "https://{language}.wikipedia.org/w/index.php";
-        queryKeyword = "search";
-        extraParameters = { fulltext = 1; };
-      };
-      results_xpath = ''//ul[@class="mw-search-results"]/li'';
-      url_xpath = ''./div[@class="mw-search-result-heading"]/a/@href'';
-      title_xpath = ''./div[@class="mw-search-result-heading"]/a'';
-      content_xpath = ''./div[@class="searchresult"]'';
-      shortcut = "w";
-      categories = "general";
-      disabled = true;
-      about = {
-        website = "https://www.wikipedia.org/";
-        wikidata_id = "Q52";
-        official_api_documentation = "https://en.wikipedia.org/api/";
-        use_official_api = false;
-        require_api_key = false;
-        results = "HTML";
-      };
-    }
-  ];
+  ] ++ (map wikipediaSearch [ "fr" "en" ]);
 }

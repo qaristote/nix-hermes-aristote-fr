@@ -9,9 +9,8 @@ stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "qaristote";
     repo = "academic-webpage";
-    rev = "1ee3b3878082a0c8fc5c72641d20ead89b01e8f3";
-    sha256 = "PDliiJNLnauVyEdssnhYReXZTunlmv6KNCgVNf6U+os=";
-    fetchSubmodules = true;
+    rev = "e7854e58aada223bdf5e01acb23e2b015abd2149";
+    sha256 = "nd8CgcY7f7kJD2txFSum7W2/qxamEO6nZ5f8SS5U10E=";
   };
 
   phases = [ "unpackPhase" "buildPhase" ];

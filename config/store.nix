@@ -2,7 +2,7 @@
 
 {
   nix = {
-    optimise.automatic = true;
+    autoOptimiseStore = true;
     gc = {
       automatic = true;
       dates = "daily";

@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   networking = {
     hostName = "hermes";
-    domain = "aristote.fr";
+    domain = lib.mkDefault "aristote.fr";
 
     useDHCP = false;
     interfaces.ens3.ipv4.addresses = [{

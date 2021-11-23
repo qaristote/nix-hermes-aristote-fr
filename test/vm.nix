@@ -2,6 +2,7 @@
   hermes = {
     imports = [ ../configuration.nix ];
 
-    deployment.targetHost = "hermes.aristote.fr";
+    networking.domain = "latitude7490";
+    # deployment.targetHost = "hermes.latitude7490";
   };
 }

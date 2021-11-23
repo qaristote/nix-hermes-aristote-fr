@@ -22,7 +22,7 @@ in {
       use_default_settings = true;
       general = {
         debug = false;
-        contact_url = "mailto:quentin@aristote.fr";
+        contact_url = "mailto:quentin@${config.networking.domain}";
         enable_stats = false;
       };
       search = {
@@ -37,7 +37,7 @@ in {
       };
       ui = { theme_args = { oscar_style = "pointhi"; }; };
       result_proxy = lib.mkIf cfg.morty.enable {
-        url = "http://searx.aristote.fr/morty";
+        url = "http://searx.${config.networking.domain}/morty";
         key = ''!!binary | "${cfg.morty.key}"'';
       };
       enabled_plugins = [

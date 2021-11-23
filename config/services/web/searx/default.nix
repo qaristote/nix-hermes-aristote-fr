@@ -8,7 +8,7 @@ let
 in {
   imports = [ ./searx ./filtron ./morty ];
 
-  services.nginx.virtualHosts."searx.aristote.fr" =
+  services.nginx.virtualHosts."searx.${config.networking.domain}" =
     lib.mkIf (cfg.searx.enable && cfg.filtron.enable) {
       locations = {
         "/" = {

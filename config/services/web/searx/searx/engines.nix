@@ -74,7 +74,7 @@ in {
         baseUrl = "https://alternativeto.net/browse/search";
         queryKeyword = "q";
         pageKeyword = "p";
-        preventRedirect = true;
+        extraParameters = { ignoreExactMatch = "true"; };
       };
       results_xpath = ''
         //article[@class="row app-list-item"]/div[@class="col-xs-10 col-sm-10 col-md-11 col-lg-offset-1 col-lg-11"]'';
@@ -100,7 +100,6 @@ in {
       search_url = makeSearchUrl {
         baseUrl = "https://emojipedia.org/search/";
         queryKeyword = "q";
-        preventRedirect = true;
       };
       results_xpath = ''//ol[@class="search-results"]/li'';
       url_xpath = "./h2/a/@href";

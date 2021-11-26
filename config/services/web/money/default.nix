@@ -2,7 +2,8 @@
 
 let cfg = config.services.ihatemoney;
 in {
-  services.nginx.virtualHosts."money.${config.networking.domain}" = lib.mkIf cfg.enable {
+  services.nginx.virtualHosts.money = lib.mkIf cfg.enable {
+    serverName = "money.${config.networking.domain}";
     forceSSL = true;
     enableACME = true;
     locations."/".proxyPass = "http://127.0.0.1${cfg.uwsgiConfig.http}/";

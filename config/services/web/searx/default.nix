@@ -8,8 +8,9 @@ let
 in {
   imports = [ ./searx ./filtron ./morty ];
 
-  services.nginx.virtualHosts."searx.${config.networking.domain}" =
+  services.nginx.virtualHosts.searx =
     lib.mkIf (cfg.searx.enable && cfg.filtron.enable) {
+      serverName = "searx.${config.networking.domain}";
       locations = {
         "/" = {
           proxyPass = "http://${cfg.filtron.listen.address}:${

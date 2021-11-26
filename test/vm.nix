@@ -18,7 +18,7 @@ in {
   };
 
   services.nginx.virtualHosts = {
-    "quentin.${config.networking.domain}" = {
+    quentin = {
       listen = lib.mkForce [{
         addr = "0.0.0.0";
         port = 8080;
@@ -26,7 +26,7 @@ in {
       forceSSL = lib.mkForce false;
       enableACME = lib.mkForce false;
     };
-    "searx.${config.networking.domain}" = {
+    searx = {
       listen = lib.mkForce [{
         addr = "0.0.0.0";
         port = 8081;
@@ -34,7 +34,7 @@ in {
       forceSSL = lib.mkForce false;
       enableACME = lib.mkForce false;
     };
-    "money.${config.networking.domain}" = {
+    money = {
       listen = lib.mkForce [{
         addr = "0.0.0.0";
         port = 8082;

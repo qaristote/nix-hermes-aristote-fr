@@ -2,7 +2,7 @@
 
 let cfg = config.services.morty;
 in {
-  services.nginx.virtualHosts."searx.${config.networking.domain}".locations =
+  services.nginx.virtualHosts.searx.locations =
     lib.mkIf cfg.enable {
       "/morty/" = {
         proxyPass = "http://127.0.0.1:${toString cfg.port}";

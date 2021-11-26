@@ -17,6 +17,8 @@ in {
     firewall = { allowedTCPPorts = nginxPorts; };
   };
 
+  services.filtron.rules = lib.mkForce [];
+
   services.nginx.virtualHosts = {
     quentin = {
       listen = lib.mkForce [{

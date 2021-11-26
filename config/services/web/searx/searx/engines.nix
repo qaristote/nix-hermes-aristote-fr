@@ -100,7 +100,6 @@ in {
       search_url = makeSearchUrl {
         baseUrl = "https://emojipedia.org/search/";
         queryKeyword = "q";
-        preventRedirect = true;
       };
       results_xpath = ''//ol[@class="search-results"]/li'';
       url_xpath = "./h2/a/@href";

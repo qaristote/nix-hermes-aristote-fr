@@ -101,10 +101,10 @@ in {
         baseUrl = "https://emojipedia.org/search/";
         queryKeyword = "q";
       };
-      results_xpath = ''//ol[@class="search-results"]/li'';
-      url_xpath = "./h2/a/@href";
-      title_xpath = "./h2/a";
-      content_xpath = "./p";
+      results_xpath = ''//ol[@class="search-results"]/li/h2'';
+      url_xpath = "./a/@href";
+      title_xpath = "./a";
+      content_xpath = "../p";
       shortcut = "emoji";
       disabled = true;
       about = {

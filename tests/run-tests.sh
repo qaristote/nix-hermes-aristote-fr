@@ -38,24 +38,25 @@ echo
 echo Checking custom Searx engines :
 declare -A QUERIES
 QUERIES[alternativeto]=Searx
-QUERIES[emojipedia]=',,,,,,,,,,,,' #'Thinking%20face'
+QUERIES[emojipedia]='Thinking%20Face' 
 QUERIES[nlab]='Kan%20extension'
 QUERIES[wikipediafr]=Paris
 QUERIES[wikipediaen]=Paris
 for ENGINE in "${!QUERIES[@]}"
 do
     echo Checking engine $ENGINE ...
-    JSON_RESULT=$(curl "http://$IP:${PORTS[searx]}/search?q=${QUERIES[$ENGINE]}+\!$ENGINE&format=json" $CURL_FLAGS)
+    REQUEST_URL="http://$IP:${PORTS[searx]}/search?q=${QUERIES[$ENGINE]}+!$ENGINE&format=json"
+    JSON_RESULT=$(curl "$REQUEST_URL" $CURL_FLAGS)
     RESULTS=$(echo $JSON_RESULT | jq '.results')
     UNRESPONSIVE_ENGINES=$(echo $JSON_RESULT | jq '.unresponsive_engines')
     if [[ ! "$UNRESPONSIVE_ENGINES" = '[]' ]]
     then
         echo "Engine not responsive."
-        exit 2
-    elif [[ "RESULTS" = [] ]]
+        # exit 2
+    elif [[ "$RESULTS" = [] ]]
     then
         echo "No results found."
-        exit 2
+        # exit 2
     fi
 done
 echo Done.

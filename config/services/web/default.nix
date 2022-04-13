@@ -5,7 +5,7 @@
 
   security.acme = {
     acceptTerms = true;
-    email = "quentin@aristote.fr";
+    defaults.email = "quentin@aristote.fr";
   };
 
   services.nginx = {

@@ -9,4 +9,5 @@
       options = "--delete-old";
     };
   };
+  system.autoUpgrade.enable = true;
 }

@@ -2,5 +2,5 @@
 
 {
   academic-webpage = pkgs.callPackage ./academic-webpage { };
-  filtron = pkgs.callPackage ./filtron {}; 
+  filtron = pkgs.callPackage ./filtron {};
 }

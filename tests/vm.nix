@@ -44,6 +44,14 @@ in {
       forceSSL = lib.mkForce false;
       enableACME = lib.mkForce false;
     };
+    rss = {
+      listen = lib.mkForce [{
+        addr = "0.0.0.0";
+        port = 8083;
+      }];
+      forceSSL = lib.mkForce false;
+      enableACME = lib.mkForce false;
+    };
   };
 
   environment.etc."searx/secrets".text = ''

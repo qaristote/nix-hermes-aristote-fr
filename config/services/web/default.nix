@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  imports = [ ./money ./quentin ./searx ];
+  imports = [ ./money ./quentin ./rss ./searx ];
 
   security.acme = {
     acceptTerms = true;

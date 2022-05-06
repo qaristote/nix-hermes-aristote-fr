@@ -14,6 +14,7 @@ sudo nixos-container start hermes || exit 2
 trap cleanup EXIT
 sleep 0.1
 IP=$(nixos-container show-ip hermes)
+CURL_FLAGS='--location --silent'
 
 echo
 echo Checking that all the services are running :
@@ -21,7 +22,7 @@ declare -A PORTS
 PORTS[quentin]=8080
 PORTS[searx]=8081
 PORTS[money]=8082
-CURL_FLAGS='--location --silent'
+PORTS[rss]=8083
 for SERVICE in "${!PORTS[@]}"
 do
     echo Checking connection to container version of $SERVICE.aristote.fr ...
@@ -38,7 +39,7 @@ echo
 echo Checking custom Searx engines :
 declare -A QUERIES
 QUERIES[alternativeto]=Searx
-QUERIES[emojipedia]='Thinking%20Face' 
+QUERIES[emojipedia]='Thinking%20Face'
 QUERIES[nlab]='Kan%20extension'
 QUERIES[wikipediafr]=Paris
 QUERIES[wikipediaen]=Paris
@@ -57,6 +58,21 @@ do
     then
         echo "No results found."
         # exit 2
+    fi
+done
+echo Done.
+
+echo
+echo Checking custom RSS bridges :
+BRIDGES=ParisJazzClub
+for BRIDGE in "$BRIDGES"
+do
+    echo Checking bridge $BRIDGE ...
+    RESULT=$(curl "http://$IP:${PORTS[rss]}/?action=display&bridge=$BRIDGE&format=Plaintext" $CURL_FLAGS --output /dev/null --write-out '%{http_code}\n')
+    if [[ ! "$RESULT" = 200 ]]
+    then
+        echo "Connection failed."
+        exit 2
     fi
 done
 echo Done.

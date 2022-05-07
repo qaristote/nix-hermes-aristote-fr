@@ -47,12 +47,11 @@ let
 in {
   services.searx.settings.engines = (disable [
     # general
-    "bing"
     "currency"
     "dictzone"
+    "google"
     # files
     "btdigg"
-    "torrentz"
     # images
     "bing images"
     "ccengine"
@@ -64,7 +63,8 @@ in {
     "photon"
   ]) ++ (enable [
     # general
-    "duckduckgo"
+    "bing"
+    "startpage"
   ]) ++ [
     { # AlternativeTo
       name = "alternativeto";

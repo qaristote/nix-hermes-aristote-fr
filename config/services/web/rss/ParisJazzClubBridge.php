@@ -27,7 +27,7 @@ class ParisJazzClubBridge extends XPathAbstract {
     }
 
     protected function formatItemContent($value) {
-        $text = preg_replace("/\s\s+/", "\n", $value);
+        $text = preg_replace("/\s{2}\s+/", "\n", $value);
         $lines = array_map("trim", explode("\n", $text));
         $time = $lines[0];
         $title = $lines[1];

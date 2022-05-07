@@ -5,7 +5,7 @@ class ParisJazzClubBridge extends XPathAbstract {
     const URI = 'https://www.parisjazzclub.net/en/agenda-free/';
     const DESCRIPTION = 'Free concerts for the Paris Jazz Club subscribers.';
     const MAINTAINER = 'Quentin Aristote';
-    const CACHE_TIMEOUT = 86400; // 24h
+    const CACHE_TIMEOUT = 1; // 24h
 
     const FEED_SOURCE_URL = 'https://www.parisjazzclub.net/en/agenda-free/';
     const XPATH_EXPRESSION_ITEM = '//div[@class="col-12 mb-5 concerts-items"]';
@@ -28,6 +28,13 @@ class ParisJazzClubBridge extends XPathAbstract {
 
     protected function formatItemContent($value) {
         $text = preg_replace("/\s\s+/", "\n", $value);
-        return $text;
+        $lines = array_map("trim", explode("\n", $text));
+        $time = $lines[0];
+        $title = $lines[1];
+        $club = $lines[2];
+        $location = $lines[3];
+        $category = $lines[4];
+        $date = $lines[5];
+        return $title . "," . $category . " -" . $club . "," . $location . " -" . $date . ", " . $time;
     }
 }

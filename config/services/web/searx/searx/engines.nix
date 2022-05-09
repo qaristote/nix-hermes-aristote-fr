@@ -49,7 +49,6 @@ in {
     # general
     "currency"
     "dictzone"
-    "google"
     # files
     "btdigg"
     # images
@@ -64,6 +63,7 @@ in {
   ]) ++ (enable [
     # general
     "bing"
+    "duckduckgo"
     "startpage"
   ]) ++ [
     { # AlternativeTo

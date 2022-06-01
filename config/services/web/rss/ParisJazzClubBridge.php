@@ -5,7 +5,7 @@ class ParisJazzClubBridge extends XPathAbstract {
     const URI = 'https://www.parisjazzclub.net/en/agenda-free/';
     const DESCRIPTION = 'Free concerts for the Paris Jazz Club subscribers.';
     const MAINTAINER = 'Quentin Aristote';
-    const CACHE_TIMEOUT = 86400; // 24h
+    const CACHE_TIMEOUT = 3600; // 1h
 
     const FEED_SOURCE_URL = 'https://www.parisjazzclub.net/en/agenda-free/';
     const XPATH_EXPRESSION_ITEM = '//div[@class="col-12 mb-5 concerts-items"]';

@@ -7,6 +7,7 @@ let
     oldAttrs // {
       installPhase = oldAttrs.installPhase + ''
         ln -sf ${./ParisJazzClubBridge.php} $out/bridges/ParisJazzClubBridge.php
+        ln -sf ${./MaisonDeLaRadioBridge.php} $out/bridges/MaisonDeLaRadioBridge.php
       '' + lib.optionalString debug ''
         touch $out/DEBUG
       '';
@@ -14,7 +15,7 @@ let
 in {
   services.rss-bridge = {
     enable = true;
-    whitelist = [ "ParisJazzClub" ];
+    whitelist = [ "ParisJazzClub" "MaisonDeLaRadio" ];
     virtualHost = "rss";
   };
 

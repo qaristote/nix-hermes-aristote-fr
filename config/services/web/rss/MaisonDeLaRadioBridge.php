@@ -14,7 +14,7 @@ class MaisonDeLaRadioBridge extends XPathAbstract {
     const URI = 'https://www.maisondelaradioetdelamusique.fr/agenda';
     const DESCRIPTION = 'Agenda of the Maison de la Radio et de la Musique.';
     const MAINTAINER = 'Quentin Aristote';
-    const CACHE_TIMEOUT = 43200; // 12h
+    const CACHE_TIMEOUT = 3600; // 1h
 
     const XPATH_EXPRESSION_ITEM = '//a[@class="agenda-event-link"]';
     const XPATH_EXPRESSION_ITEM_TITLE = './/h3';

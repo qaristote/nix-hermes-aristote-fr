@@ -47,12 +47,14 @@ let
 in {
   services.searx.settings.engines = (disable [
     # general
+    "bing"
     "currency"
     "dictzone"
     # files
     "btdigg"
     # images
     "ccengine"
+    "bing images"
     "library of congress"
     "qwant images"
     # it

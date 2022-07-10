@@ -52,7 +52,6 @@ in {
     # files
     "btdigg"
     # images
-    "bing images"
     "ccengine"
     "library of congress"
     "qwant images"
@@ -62,7 +61,6 @@ in {
     "photon"
   ]) ++ (enable [
     # general
-    "bing"
     "duckduckgo"
     "startpage"
   ]) ++ [

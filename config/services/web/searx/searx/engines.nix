@@ -47,6 +47,7 @@ let
 in {
   services.searx.settings.engines = (disable [
     # general
+    "google"
     "bing"
     "currency"
     "dictzone"
@@ -64,6 +65,7 @@ in {
   ]) ++ (enable [
     # general
     "duckduckgo"
+    "gigablast"
     "startpage"
   ]) ++ [
     { # AlternativeTo

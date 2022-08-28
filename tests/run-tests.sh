@@ -64,8 +64,8 @@ echo Done.
 
 echo
 echo Checking custom RSS bridges :
-BRIDGES=ParisJazzClub
-for BRIDGE in "$BRIDGES"
+BRIDGES="$(ls ../config/services/web/rss/*Bridge.php | xargs basename -s Bridge.php)"
+for BRIDGE in $BRIDGES
 do
     echo Checking bridge $BRIDGE ...
     RESULT=$(curl "http://$IP:${PORTS[rss]}/?action=display&bridge=$BRIDGE&format=Plaintext" $CURL_FLAGS --output /dev/null --write-out '%{http_code}\n')

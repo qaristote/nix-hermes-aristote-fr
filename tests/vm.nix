@@ -4,6 +4,14 @@ let
   nginxPorts = lib.concatLists
     (lib.mapAttrsToList (_: cfg: (builtins.map (x: x.port) cfg.listen))
       config.services.nginx.virtualHosts);
+  nginxMakeLocal = port: {
+    listen = lib.mkForce [{
+      inherit port;
+      addr = "0.0.0.0";
+    }];
+    forceSSL = lib.mkForce false;
+    enableACME = lib.mkForce false;
+  };
 in {
   imports = [ ../configuration.nix ];
 
@@ -17,41 +25,14 @@ in {
     firewall = { allowedTCPPorts = nginxPorts; };
   };
 
-  services.filtron.rules = lib.mkForce [];
+  services.filtron.rules = lib.mkForce [ ];
 
   services.nginx.virtualHosts = {
-    quentin = {
-      listen = lib.mkForce [{
-        addr = "0.0.0.0";
-        port = 8080;
-      }];
-      forceSSL = lib.mkForce false;
-      enableACME = lib.mkForce false;
-    };
-    searx = {
-      listen = lib.mkForce [{
-        addr = "0.0.0.0";
-        port = 8081;
-      }];
-      forceSSL = lib.mkForce false;
-      enableACME = lib.mkForce false;
-    };
-    money = {
-      listen = lib.mkForce [{
-        addr = "0.0.0.0";
-        port = 8082;
-      }];
-      forceSSL = lib.mkForce false;
-      enableACME = lib.mkForce false;
-    };
-    rss = {
-      listen = lib.mkForce [{
-        addr = "0.0.0.0";
-        port = 8083;
-      }];
-      forceSSL = lib.mkForce false;
-      enableACME = lib.mkForce false;
-    };
+    quentin = nginxMakeLocal 8080;
+    searx = nginxMakeLocal 8081;
+    money = nginxMakeLocal 8082;
+    rss = nginxMakeLocal 8083;
+    webkeydirectory = nginxMakeLocal 8084;
   };
 
   environment.etc."searx/secrets".text = ''

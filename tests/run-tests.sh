@@ -7,6 +7,7 @@ function cleanup {
     sudo nixos-container stop hermes
 }
 
+sudo nixos-container stop hermes || exit 2
 sudo nixos-container update hermes --config-file ./vm.nix || exit 2
 echo Starting container ...
 sudo nixos-container start hermes || exit 2
@@ -23,6 +24,7 @@ PORTS[quentin]=8080
 PORTS[searx]=8081
 PORTS[money]=8082
 PORTS[rss]=8083
+PORTS[openpgpkey]=8084
 for SERVICE in "${!PORTS[@]}"
 do
     echo Checking connection to container version of $SERVICE.aristote.fr ...
@@ -30,7 +32,6 @@ do
     if [[ ! "$RESULT" = 200 ]]
     then
         echo "Connection failed."
-        exit 2
     fi
 done
 echo Done.
@@ -53,11 +54,9 @@ do
     if [[ ! "$UNRESPONSIVE_ENGINES" = '[]' ]]
     then
         echo "Engine not responsive."
-        # exit 2
     elif [[ "$RESULTS" = [] ]]
     then
         echo "No results found."
-        # exit 2
     fi
 done
 echo Done.
@@ -72,7 +71,26 @@ do
     if [[ ! "$RESULT" = 200 ]]
     then
         echo "Connection failed."
-        exit 2
     fi
 done
+echo Done.
+
+echo
+echo Checking web keys directory :
+KEYS="$(ls ../config/services/web/webkeydirectory/hu)"
+for KEY in $KEYS
+do
+    echo Checking key $KEY ...
+    RESULT=$(curl "http://$IP:${PORTS[openpgpkey]}/.well-known/openpgpkey/aristote.vm/hu/$KEY" $CURL_FLAGS --output /dev/null --write-out '%{http_code}\n')
+    if [[ ! "$RESULT" = 200 ]]
+    then
+        echo "Connection failed."
+    fi
+done
+echo Checking policy file ...
+RESULT=$(curl "http://$IP:${PORTS[openpgpkey]}/.well-known/openpgpkey/aristote.vm/policy" $CURL_FLAGS --output /dev/null --write-out '%{http_code}\n')
+if [[ ! "$RESULT" = 200 ]]
+then
+    echo "Connection failed."
+fi
 echo Done.

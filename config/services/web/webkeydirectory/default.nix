@@ -6,7 +6,7 @@ in {
     serverName = "openpgpkey.${config.networking.domain}";
     locations = {
       "${webkeydirectoryPath}/hu/" = {
-        alias = ./hu/;
+        alias = "${./hu}/";
         extraConfig = ''
           default_type        "application/octet-stream";
           add_header          Access-Control-Allow-Origin * always;

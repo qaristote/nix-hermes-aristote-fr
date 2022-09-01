@@ -21,7 +21,7 @@ in {
     settings = {
       use_default_settings = true;
       general = {
-        debug = false;
+        debug = true;
         contact_url = "mailto:quentin@${config.networking.domain}";
         enable_stats = false;
       };

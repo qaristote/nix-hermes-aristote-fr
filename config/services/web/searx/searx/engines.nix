@@ -78,12 +78,11 @@ in {
         pageKeyword = "p";
         extraParameters = { ignoreExactMatch = "true"; };
       };
-      results_xpath = ''
-        //article[@class="row app-list-item"]/div[@class="col-xs-10 col-sm-10 col-md-11 col-lg-offset-1 col-lg-11"]'';
-      url_xpath = "./h3/a/@href";
-      title_xpath = "./h3/a";
-      content_xpath =
-        ''./div[@class="itemDesc read-more-box"]/p[@class="text"]'';
+      results_xpath = ''//div[@class="AppListItem_appInfo__1jPpe"]'';
+      # ''//article[@class="row app-list-item"]/div[@class="col-xs-10 col-sm-10 col-md-11 col-lg-offset-1 col-lg-11"]'';
+      url_xpath = ".//h2/a/@href";
+      title_xpath = ".//h2/a";
+      content_xpath = "./span/p";
       shortcut = "a2";
       categories = "it";
       disabled = true;

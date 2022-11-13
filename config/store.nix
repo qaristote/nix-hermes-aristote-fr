@@ -3,6 +3,7 @@
 {
   nix = {
     autoOptimiseStore = true;
+    experimental-features = [ "nix-command" "flakes" ];
     gc = {
       automatic = true;
       dates = "daily";

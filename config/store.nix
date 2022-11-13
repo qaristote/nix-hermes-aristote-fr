@@ -11,5 +11,9 @@
     };
     settings.max-jobs = lib.mkDefault 1;
   };
-  system.autoUpgrade.enable = true;
+  system.autoUpgrade = {
+    enable = true;
+    flake = "git+file:///etc/nixos/";
+    flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
+  };
 }

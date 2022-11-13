@@ -13,7 +13,7 @@ let
     enableACME = lib.mkForce false;
   };
 in {
-  imports = [ ../configuration.nix ];
+  imports = [ ../config ];
 
   boot.isContainer = true;
 

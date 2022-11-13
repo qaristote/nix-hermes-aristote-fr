@@ -3,18 +3,20 @@
     "data": {
       "inputs": {
         "flake-utils": [
-          "personal-webpage"
+          "personal-webpage",
+          "flake-utils"
         ],
         "nixpkgs": [
-          "personal-webpage"
+          "personal-webpage",
+          "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1668340813,
-        "narHash": "sha256-S3rKgiJqBGsH69zU/A3tlogMC/jpICHtSAzd/CBTVUI=",
+        "lastModified": 1668375475,
+        "narHash": "sha256-rp+tPVJkm8QWG48MBhk/+qblvYOmSpLamfAZkhMnyKw=",
         "owner": "qaristote",
         "repo": "info",
-        "rev": "946290203abdc6075b01a40672509bbaabd260d5",
+        "rev": "5a8c11a5fae47a8eaad7a90ac3a70020243ceb48",
         "type": "github"
       },
       "original": {
@@ -33,9 +35,8 @@
         "type": "github"
       },
       "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
+        "id": "flake-utils",
+        "type": "indirect"
       }
     },
     "nixpkgs": {
@@ -55,15 +56,19 @@
     "personal-webpage": {
       "inputs": {
         "data": "data",
-        "flake-utils": "flake-utils",
-        "nixpkgs": []
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1668369630,
-        "narHash": "sha256-aaXUpBgOhMjDYDSsnGs28MExA4o0cXn7tV5ndfxpikU=",
+        "lastModified": 1668375580,
+        "narHash": "sha256-eviU7Gx1Y1yTKsWdKQJ0fI/gA/L3MtDp5ZLbleSthzk=",
         "owner": "qaristote",
         "repo": "webpage",
-        "rev": "b0cb171f641dca185cad98506d6c0e104c67dab0",
+        "rev": "19a0c33863da3223145e4e1c1315d5332ff53df5",
         "type": "github"
       },
       "original": {
@@ -74,6 +79,7 @@
     },
     "root": {
       "inputs": {
+        "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "personal-webpage": "personal-webpage"
       }

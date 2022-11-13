@@ -8,6 +8,7 @@
     ./environment.nix
     ./networking.nix
     ./services
+    ./store.nix
     ./users.nix
   ];
 

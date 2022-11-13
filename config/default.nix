@@ -6,7 +6,6 @@
     (modulesPath + "/profiles/minimal.nix")
     ./boot.nix
     ./environment.nix
-    ./hardware-configuration.nix
     ./networking.nix
     ./services
     ./users.nix

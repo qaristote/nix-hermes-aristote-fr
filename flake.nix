@@ -9,7 +9,7 @@
       hermes = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = attrs;
-        modules = [ ./configuration.nix ];
+        modules = [ ./configuration.nix ./hardware-configuration.nix ];
       };
       hermes-test = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

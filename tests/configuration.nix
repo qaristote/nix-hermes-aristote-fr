@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, modulesPath, ... }:
 
 let
   nginxPorts = lib.concatLists
@@ -14,6 +14,8 @@ let
   };
 in {
   imports = [ ../configuration.nix ];
+
+  boot.isContainer = true;
 
   networking = lib.mkForce {
     domain = "aristote.vm";

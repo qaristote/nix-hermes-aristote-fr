@@ -8,7 +8,7 @@ function cleanup {
 }
 
 sudo nixos-container stop hermes || exit 2
-sudo nixos-container update hermes --config-file ./vm.nix || exit 2
+sudo nixos-container update hermes --flake ..#hermes-test || exit 2
 echo Starting container ...
 sudo nixos-container start hermes || exit 2
 

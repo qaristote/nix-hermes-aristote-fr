@@ -1,0 +1,84 @@
+{
+  "nodes": {
+    "data": {
+      "inputs": {
+        "flake-utils": [
+          "personal-webpage"
+        ],
+        "nixpkgs": [
+          "personal-webpage"
+        ]
+      },
+      "locked": {
+        "lastModified": 1668340813,
+        "narHash": "sha256-S3rKgiJqBGsH69zU/A3tlogMC/jpICHtSAzd/CBTVUI=",
+        "owner": "qaristote",
+        "repo": "info",
+        "rev": "946290203abdc6075b01a40672509bbaabd260d5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "qaristote",
+        "repo": "info",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1667395993,
+        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1668266328,
+        "narHash": "sha256-+nAW+XR8nswyEnt5IkQlkrz9erTcQWBVLkhtNHxckFw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "5ca8e2e9e1fa5e66a749b39261ad6bd0e07bc87f",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "personal-webpage": {
+      "inputs": {
+        "data": "data",
+        "flake-utils": "flake-utils",
+        "nixpkgs": []
+      },
+      "locked": {
+        "lastModified": 1668369630,
+        "narHash": "sha256-aaXUpBgOhMjDYDSsnGs28MExA4o0cXn7tV5ndfxpikU=",
+        "owner": "qaristote",
+        "repo": "webpage",
+        "rev": "b0cb171f641dca185cad98506d6c0e104c67dab0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "qaristote",
+        "repo": "webpage",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "personal-webpage": "personal-webpage"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

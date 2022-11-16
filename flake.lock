@@ -65,11 +65,11 @@
         "uncss": "uncss"
       },
       "locked": {
-        "lastModified": 1668636351,
-        "narHash": "sha256-eGu4TCPtgSeCrdIlvKM/wkb7NPX83gI+R3GwMHAmwaA=",
+        "lastModified": 1668637413,
+        "narHash": "sha256-Uj/aYwlLRV8ZQqO7M8ZCkrTsMXM04+ByQktUQHiJpiM=",
         "owner": "qaristote",
         "repo": "webpage",
-        "rev": "3229cdeb36992f429a4cba6c0e0f0c0fb38db527",
+        "rev": "4098a8323a2dfbb498e1e59bef417b48b1034775",
         "type": "github"
       },
       "original": {

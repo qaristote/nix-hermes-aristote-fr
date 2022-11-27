@@ -2,7 +2,7 @@
 
 let
   cfg = config.services.rss-bridge;
-  debug = true;
+  debug = false;
   rss-bridge = pkgs.rss-bridge.overrideAttrs (oldAttrs:
     oldAttrs // {
       installPhase = oldAttrs.installPhase + ''

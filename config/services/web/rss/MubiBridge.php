@@ -20,9 +20,9 @@ class MubiBridge extends XPathAbstract {
         '' => [
             'language' => [
                 'name' => 'Language',
-                'type' => 'string',
-                'required' => 'true',
-                'exampleValue' => 'en / de / es / fr / it / nl / pt / tr'
+                'type' => 'text',
+                'exampleValue' => 'en / de / es / fr / it / nl / pt / tr',
+                'defaultValue' => 'en'
             ]
         ]
     ];

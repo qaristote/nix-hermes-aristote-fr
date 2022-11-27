@@ -29,6 +29,8 @@ in {
 
   services.filtron.rules = lib.mkForce [ ];
 
+  services.rss-bridge.debug = true;
+
   services.nginx.virtualHosts = {
     quentin = nginxMakeLocal 8080;
     searx = nginxMakeLocal 8081;

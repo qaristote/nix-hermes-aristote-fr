@@ -60,12 +60,12 @@ in {
         mkdir -p $out/bridges
         cp -r ${cfg.package}/* $out/
         pushd $out/bridges 
-      '' + concatStringsSep "\n"
-        (map (bridge: ''ln -sf ${bridge.source} "${bridge.name}Bridge.php"'')
-          cfg.extraBridges) + ''
-            popd
-          '' + lib.optionalString cfg.debug ''
-            touch $out/DEBUG
-          '')));
+      '' + concatStrings (map (bridge: ''
+        ln -sf ${bridge.source} "${bridge.name}Bridge.php"
+      '') cfg.extraBridges) + ''
+        popd
+      '' + lib.optionalString cfg.debug ''
+        touch $out/DEBUG
+      '')));
   };
 }

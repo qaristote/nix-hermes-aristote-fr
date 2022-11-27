@@ -59,7 +59,7 @@ in {
       (mkForce (pkgs.runCommand "rss-bridge" { } (''
         mkdir -p $out/bridges
         cp -r ${cfg.package}/* $out/
-        pushd $out/bridges 
+        pushd $out/bridges
       '' + concatStrings (map (bridge: ''
         ln -sf ${bridge.source} "${bridge.name}Bridge.php"
       '') cfg.extraBridges) + ''

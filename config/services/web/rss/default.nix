@@ -9,7 +9,7 @@ let
         pushd $out/bridges
         ln -sf ${./ParisJazzClubBridge.php} ParisJazzClubBridge.php
         ln -sf ${./MaisonDeLaRadioBridge.php} MaisonDeLaRadioBridge.php
-        ln -sf ${./MubiBridge.php} MubiBridge.php
+        ln -sf ${./WhatsOnMubiBridge.php} WhatsOnMubiBridge.php
         popd
       '' + lib.optionalString debug ''
         touch $out/DEBUG
@@ -18,7 +18,7 @@ let
 in {
   services.rss-bridge = {
     enable = true;
-    whitelist = [ "ParisJazzClub" "MaisonDeLaRadio" "Mubi" ];
+    whitelist = [ "ParisJazzClub" "MaisonDeLaRadio" "WhatsOnMubi" ];
     virtualHost = "rss";
   };
 

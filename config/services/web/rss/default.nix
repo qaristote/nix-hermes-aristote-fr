@@ -2,12 +2,15 @@
 
 let
   cfg = config.services.rss-bridge;
-  debug = false;
+  debug = true;
   rss-bridge = pkgs.rss-bridge.overrideAttrs (oldAttrs:
     oldAttrs // {
       installPhase = oldAttrs.installPhase + ''
-        ln -sf ${./ParisJazzClubBridge.php} $out/bridges/ParisJazzClubBridge.php
-        ln -sf ${./MaisonDeLaRadioBridge.php} $out/bridges/MaisonDeLaRadioBridge.php
+        pushd $out/bridges
+        ln -sf ${./ParisJazzClubBridge.php} ParisJazzClubBridge.php
+        ln -sf ${./MaisonDeLaRadioBridge.php} MaisonDeLaRadioBridge.php
+        ln -sf ${./MubiBridge.php} MubiBridge.php
+        popd
       '' + lib.optionalString debug ''
         touch $out/DEBUG
       '';
@@ -15,7 +18,7 @@ let
 in {
   services.rss-bridge = {
     enable = true;
-    whitelist = [ "ParisJazzClub" "MaisonDeLaRadio" ];
+    whitelist = [ "ParisJazzClub" "MaisonDeLaRadio" "Mubi" ];
     virtualHost = "rss";
   };
 

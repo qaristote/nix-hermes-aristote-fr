@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let
-  cfg = config.services.rss-bridge;
+let cfg = config.services.rss-bridge;
 in {
   services.rss-bridge = {
     enable = true;
@@ -24,6 +23,10 @@ in {
       {
         name = "WhatsOnMubi";
         source = ./WhatsOnMubiBridge.php;
+      }
+      {
+        name = "ParisCineInfo";
+        source = ./ParisCineInfoBridge.php;
       }
     ];
     virtualHost = "rss";

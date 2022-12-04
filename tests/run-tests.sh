@@ -42,7 +42,6 @@ echo
 echo Checking custom Searx engines :
 declare -A QUERIES
 QUERIES[alternativeto]=Searx
-QUERIES[emojipedia]='Thinking%20Face'
 QUERIES[nlab]='Kan%20extension'
 QUERIES[wikipediafr]=Paris
 QUERIES[wikipediaen]=Paris

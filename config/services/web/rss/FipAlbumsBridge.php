@@ -18,14 +18,14 @@ class FipAlbumsBridge extends XPathAbstract {
         ]
     ];
 
-    const XPATH_EXPRESSION_ITEM = '//div[@class="Card Basic list squaredVisual"]';
+    const XPATH_EXPRESSION_ITEM = '//div[starts-with(@class, "CardAlbum ")]';
     const XPATH_EXPRESSION_ITEM_TITLE = './/a/@title';
-    const XPATH_EXPRESSION_ITEM_CONTENT = './div[1]';
+    const XPATH_EXPRESSION_ITEM_CONTENT = './/img/@alt';
     const XPATH_EXPRESSION_ITEM_URI = './/a/@href';
-    const XPATH_EXPRESSION_ITEM_AUTHOR = './/div[@class="CardDetails fullWidth"]/div[2]';
+    const XPATH_EXPRESSION_ITEM_AUTHOR = './/div[starts-with(@class, "CardAlbum-details ")]/div[2]';
     const XPATH_EXPRESSION_ITEM_TIMESTAMP = './/time/@datetime';
     const XPATH_EXPRESSION_ITEM_ENCLOSURES = './/img/@src';
-    const XPATH_EXPRESSION_ITEM_CATEGORIES = './/div[@class="CardDetails fullWidth"]/div[3]';
+    const XPATH_EXPRESSION_ITEM_CATEGORIES = './/div[starts-with(@class, "CardDetails-label ")]/span[2]';
 
     public function getSourceUrl() {
         return self::URI . $this->getInput('category');

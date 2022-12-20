@@ -29,9 +29,9 @@ let
       extraParameters = { fulltext = 1; };
     };
     results_xpath = ''//ul[@class="mw-search-results"]/li'';
-    url_xpath = ''./div[@class="mw-search-result-heading"]/a/@href'';
-    title_xpath = ''./div[@class="mw-search-result-heading"]/a'';
-    content_xpath = ''./div[@class="searchresult"]'';
+    url_xpath = ''.//div[@class="mw-search-result-heading"]/a/@href'';
+    title_xpath = ''.//div[@class="mw-search-result-heading"]/a/@title'';
+    content_xpath = ''.//div[@class="searchresult"]'';
     shortcut = "w${lang}";
     categories = "general";
     disabled = true;

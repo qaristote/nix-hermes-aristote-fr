@@ -43,8 +43,8 @@ echo Checking custom Searx engines :
 declare -A QUERIES
 QUERIES[alternativeto]=Searx
 QUERIES[nlab]='Kan%20extension'
-QUERIES[wikipediafr]=Paris
-QUERIES[wikipediaen]=Paris
+QUERIES[wfr]=Paris
+QUERIES[wen]=Paris
 for ENGINE in "${!QUERIES[@]}"
 do
     echo Checking engine $ENGINE ...

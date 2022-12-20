@@ -68,33 +68,6 @@ in {
     "gigablast"
     "startpage"
   ]) ++ [
-    { # AlternativeTo
-      name = "alternativeto";
-      engine = "xpath";
-      paging = true;
-      search_url = makeSearchUrl {
-        baseUrl = "https://alternativeto.net/browse/search";
-        queryKeyword = "q";
-        pageKeyword = "p";
-        extraParameters = { ignoreExactMatch = "true"; };
-      };
-      results_xpath = ''//div[@class="AppListItem_appInfo__1jPpe"]'';
-      # ''//article[@class="row app-list-item"]/div[@class="col-xs-10 col-sm-10 col-md-11 col-lg-offset-1 col-lg-11"]'';
-      url_xpath = ".//h2/a/@href";
-      title_xpath = ".//h2/a";
-      content_xpath = "./span/p";
-      shortcut = "a2";
-      categories = "it";
-      disabled = true;
-      about = {
-        website = "https://alternativeto.net/";
-        wikidata_id = "Q3613175";
-        official_api_documentation = "";
-        use_official_api = false;
-        require_api_key = false;
-        results = "HTML";
-      };
-    }
     {
       name = "nlab";
       engine = "xpath";

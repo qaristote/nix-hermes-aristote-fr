@@ -7,8 +7,10 @@ function cleanup {
     sudo nixos-container stop hermes
 }
 
+echo Stopping container for update ...
 sudo nixos-container stop hermes || exit 2
-sudo nixos-container update hermes --config-file ./vm.nix || exit 2
+echo Updating container ...
+sudo nixos-container update hermes --flake ..#hermes-test || exit 2
 echo Starting container ...
 sudo nixos-container start hermes || exit 2
 
@@ -40,10 +42,9 @@ echo
 echo Checking custom Searx engines :
 declare -A QUERIES
 QUERIES[alternativeto]=Searx
-QUERIES[emojipedia]='Thinking%20Face'
 QUERIES[nlab]='Kan%20extension'
-QUERIES[wikipediafr]=Paris
-QUERIES[wikipediaen]=Paris
+QUERIES[wfr]=Paris
+QUERIES[wen]=Paris
 for ENGINE in "${!QUERIES[@]}"
 do
     echo Checking engine $ENGINE ...

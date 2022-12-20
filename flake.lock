@@ -1,0 +1,116 @@
+{
+  "nodes": {
+    "data": {
+      "inputs": {
+        "flake-utils": [
+          "personal-webpage",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "personal-webpage",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1671297777,
+        "narHash": "sha256-kvCzzOupvgGyO3Q/0cpGPgDYEdj8g6MVCH4Mlt/e56k=",
+        "owner": "qaristote",
+        "repo": "info",
+        "rev": "c91a58357700a466aee5135767535136c878e009",
+        "type": "github"
+      },
+      "original": {
+        "owner": "qaristote",
+        "repo": "info",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1667395993,
+        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
+        "type": "github"
+      },
+      "original": {
+        "id": "flake-utils",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1671249438,
+        "narHash": "sha256-5e+CcnbZA3/i2BRXbnzRS52Ly67MUNdZR+Zpbb2C65k=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "067bfc6c90a301572cec7da48f09c447a9a8eae0",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "personal-webpage": {
+      "inputs": {
+        "data": "data",
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "uncss": "uncss"
+      },
+      "locked": {
+        "lastModified": 1671298845,
+        "narHash": "sha256-lFVBXth57Pn6QIN+vPvFR87UxWJ1HFXarHalDvjWrR4=",
+        "owner": "qaristote",
+        "repo": "webpage",
+        "rev": "334d3318b16d765dc10a537be841240986aeea04",
+        "type": "github"
+      },
+      "original": {
+        "owner": "qaristote",
+        "repo": "webpage",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs",
+        "personal-webpage": "personal-webpage"
+      }
+    },
+    "uncss": {
+      "inputs": {
+        "flake-utils": [
+          "personal-webpage",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "personal-webpage",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1668549614,
+        "narHash": "sha256-1C2qBUB5Wz7DPPYR4DQi8hh2xoFA89WgEfdI2bsv4pI=",
+        "owner": "qaristote",
+        "repo": "uncss",
+        "rev": "0e5a335e85ec85ff6f764ea87adb5c7da83b0924",
+        "type": "github"
+      },
+      "original": {
+        "owner": "qaristote",
+        "repo": "uncss",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

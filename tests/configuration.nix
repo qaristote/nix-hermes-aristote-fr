@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, modulesPath, ... }:
 
 let
   nginxPorts = lib.concatLists
@@ -13,7 +13,9 @@ let
     enableACME = lib.mkForce false;
   };
 in {
-  imports = [ ../configuration.nix ];
+  imports = [ ../config ];
+
+  boot.isContainer = true;
 
   networking = lib.mkForce {
     domain = "aristote.vm";
@@ -26,6 +28,8 @@ in {
   };
 
   services.filtron.rules = lib.mkForce [ ];
+
+  services.rss-bridge.debug = true;
 
   services.nginx.virtualHosts = {
     quentin = nginxMakeLocal 8080;

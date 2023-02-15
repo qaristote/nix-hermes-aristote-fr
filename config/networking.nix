@@ -22,8 +22,8 @@
   services.openssh = {
     enable = true;
     settings = {
-      permitRootLogin = "no";
-      passwordAuthentication = false;
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
     };
     extraConfig = ''
       AcceptEnv PS1

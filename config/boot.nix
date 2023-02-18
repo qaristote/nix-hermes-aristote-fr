@@ -1,12 +1,6 @@
 { ... }:
 
 {
-  boot = {
-    loader.grub = {
-      enable = true;
-      version = 2;
-      enableCryptodisk = true;
-      device = "/dev/vda";
-    };
-  };
+  personal.boot.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
 }

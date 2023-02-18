@@ -1,4 +1,4 @@
-{ pkgs, modulesPath, ... }:
+{ modulesPath, ... }:
 
 {
   imports = [
@@ -7,8 +7,8 @@
     ./boot.nix
     ./environment.nix
     ./networking.nix
+    ./nix.nix
     ./services
-    ./store.nix
     ./users.nix
   ];
 

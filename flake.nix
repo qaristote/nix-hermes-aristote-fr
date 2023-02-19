@@ -4,7 +4,7 @@
       url = "github:qaristote/webpage";
       inputs.nixpkgs.follows = "/nixpkgs";
     };
-    my-nixpkgs.url = "git+file:///home/qaristote/code/nix/my-nixpkgs";
+    my-nixpkgs.url = "github:qaristote/my-nixpkgs";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11-small";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable-small";
   };

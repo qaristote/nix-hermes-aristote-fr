@@ -44,14 +44,17 @@
         "nur": "nur"
       },
       "locked": {
-        "lastModified": 1676820683,
+        "lastModified": 1676822972,
         "narHash": "sha256-Duxvn4bUTG0n03KO3cxvqThtEk1e6FfLdGXJLKrOV8c=",
-        "type": "git",
-        "url": "file:///home/qaristote/code/nix/my-nixpkgs"
+        "owner": "qaristote",
+        "repo": "my-nixpkgs",
+        "rev": "7b29378f133ed49c341d996698bb1207edc950a4",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/qaristote/code/nix/my-nixpkgs"
+        "owner": "qaristote",
+        "repo": "my-nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs": {

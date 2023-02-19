@@ -17,8 +17,10 @@
           my-nixpkgs.nixosModules.personal
           ({ ... }: {
             nixpkgs.overlays = [
-              my-nixpkgs.overlays.personal
               personal-webpage.overlays.default
+              # TODO the order shouldn't matter, yet this overlay doesn't work
+              # if it comes first
+              my-nixpkgs.overlays.default
               (_: prev: {
                 inherit (nixpkgs-unstable.legacyPackages."${prev.system}")
                   filtron;

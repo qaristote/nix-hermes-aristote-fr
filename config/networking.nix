@@ -1,6 +1,12 @@
 { pkgs, ... }:
 
 {
+  personal.networking = {
+    enable = true;
+    firewall.http = true;
+    ssh.enable = true;
+  };
+
   networking = {
     hostName = "hermes";
     domain = "aristote.fr";
@@ -12,22 +18,5 @@
     }];
     defaultGateway = "93.95.228.1";
     nameservers = [ "93.95.224.28" "93.95.224.29" ];
-
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ 80 443 ];
-    };
   };
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-    };
-    extraConfig = ''
-      AcceptEnv PS1
-    '';
-  };
-  services.fail2ban.enable = true;
 }

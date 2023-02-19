@@ -45,7 +45,7 @@
       },
       "locked": {
         "lastModified": 1676671024,
-        "narHash": "sha256-hziJ8MYh4f27DAaVjWqqZd0gC9LFIMx5ADnXik5+1HI=",
+        "narHash": "sha256-Duxvn4bUTG0n03KO3cxvqThtEk1e6FfLdGXJLKrOV8c=",
         "type": "git",
         "url": "file:///home/qaristote/code/nix/my-nixpkgs"
       },
@@ -56,25 +56,43 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1676549890,
-        "narHash": "sha256-sq/WcOEAl7gWrrfGkWdnyYazRyTf+enEim/o6LOQzI8=",
+        "lastModified": 1676771332,
+        "narHash": "sha256-YYn2K0AwyIyCzvP7C+xzEt64rlCRPyrllRPGNNu+50M=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "8c66bd1b68f4708c90dcc97c6f7052a5a7b33257",
+        "rev": "f27a4e2f6a3a23b843ca1c736e6043fb8b99acc1",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
+        "owner": "NixOS",
+        "ref": "nixos-22.11-small",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1676795730,
+        "narHash": "sha256-X69A9BdcPTySJJ7DqS4wc8b6eqGKi32jCSyaBsz4WB0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "efc59894b1ba73cb745676616c56c780383d6788",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable-small",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nur": {
       "locked": {
-        "lastModified": 1676725308,
-        "narHash": "sha256-vzS7PJCDD7fCA9ybuiNcQgOAploV++zF//j6WL2e7zA=",
+        "lastModified": 1676817898,
+        "narHash": "sha256-1yrNakg2qtOI9v/IFk+cYPEYtuoOQTsRvjG88tlhAVo=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "ec4bf914ab48fef81ad0ff0cbc70c84895454e0e",
+        "rev": "241b6ab4dccc162906a265e421a537847b74e8e9",
         "type": "github"
       },
       "original": {
@@ -109,6 +127,7 @@
       "inputs": {
         "my-nixpkgs": "my-nixpkgs",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "personal-webpage": "personal-webpage"
       }
     },

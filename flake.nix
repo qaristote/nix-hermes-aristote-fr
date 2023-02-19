@@ -5,16 +5,20 @@
       inputs.nixpkgs.follows = "/nixpkgs";
     };
     my-nixpkgs.url = "git+file:///home/qaristote/code/nix/my-nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11-small";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable-small";
   };
 
-  outputs = { self, nixpkgs, my-nixpkgs, personal-webpage, ... }: {
+  outputs = { self, nixpkgs, nixpkgs-unstable, my-nixpkgs, personal-webpage, ... }: {
     nixosConfigurations = let
       system = "x86_64-linux";
       commonModules = [
         my-nixpkgs.nixosModules.personal
         ({ ... }: {
           nixpkgs.overlays =
-            [ my-nixpkgs.overlays.personal personal-webpage.overlays.default ];
+            [ my-nixpkgs.overlays.personal personal-webpage.overlays.default (_: prev: {
+              inherit (nixpkgs-unstable.legacyPackages."${prev.system}") filtron;
+            })];
         })
       ];
     in {

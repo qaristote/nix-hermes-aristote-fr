@@ -54,7 +54,7 @@ in {
     # files
     "btdigg"
     # images
-    "openverse"
+    "ccengine"
     "bing images"
     "library of congress"
     "qwant images"

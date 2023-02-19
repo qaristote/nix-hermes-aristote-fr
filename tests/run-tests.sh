@@ -10,7 +10,7 @@ function cleanup {
 echo Stopping container for update ...
 sudo nixos-container stop hermes || exit 2
 echo Updating container ...
-sudo nixos-container update hermes --flake ..#hermes-test || exit 2
+sudo nixos-container update hermes --flake .#hermes-test || exit 2
 echo Starting container ...
 sudo nixos-container start hermes || exit 2
 
@@ -64,7 +64,7 @@ echo Done.
 
 echo
 echo Checking custom RSS bridges :
-BRIDGES="$(ls ../config/services/web/rss/*Bridge.php | xargs basename -s Bridge.php)"
+BRIDGES="$(ls config/services/web/rss/*Bridge.php | xargs basename -s Bridge.php)"
 for BRIDGE in $BRIDGES
 do
     echo Checking bridge $BRIDGE ...
@@ -78,7 +78,7 @@ echo Done.
 
 echo
 echo Checking web keys directory :
-KEYS="$(ls ../config/services/web/webkeydirectory/hu)"
+KEYS="$(ls config/services/web/webkeydirectory/hu)"
 for KEY in $KEYS
 do
     echo Checking key $KEY ...

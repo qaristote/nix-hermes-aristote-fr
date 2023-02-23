@@ -3,10 +3,7 @@
 {
   services.nginx.virtualHosts.quentin = {
     serverName = "quentin.${config.networking.domain}";
-    locations."/".root = "${pkgs.personal.webpage.override {
-      line-awesome-css =
-        pkgs.personal.line-awesome-css.override { fontDisplay = "swap"; };
-    }}";
+    locations."/".root = "${pkgs.personal.webpage}";
     forceSSL = true;
     enableACME = true;
     extraConfig = ''

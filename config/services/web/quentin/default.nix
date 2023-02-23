@@ -9,6 +9,9 @@
     }}";
     forceSSL = true;
     enableACME = true;
+    extraConfig = ''
+      add_header Cache-Control no-cache;
+    '';
   };
 
   # automatically fetch (non-structural) website updates when updating the system

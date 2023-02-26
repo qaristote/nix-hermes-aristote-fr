@@ -29,11 +29,14 @@ PORTS[rss]=8083
 PORTS[openpgpkey]=8084
 for SERVICE in "${!PORTS[@]}"
 do
+    URL="http://$IP:${PORTS[$SERVICE]}/"
     echo Checking connection to container version of $SERVICE.aristote.fr ...
-    RESULT=$(curl "http://$IP:${PORTS[$SERVICE]}/" $CURL_FLAGS --output /dev/null --write-out '%{http_code}\n')
+    RESULT=$(curl "$URL" $CURL_FLAGS --output /dev/null --write-out '%{http_code}\n')
     if [[ ! "$RESULT" = 200 ]]
     then
         echo "Connection failed."
+    else
+        echo "Up and running at $URL !" 
     fi
 done
 echo Done.
@@ -95,3 +98,6 @@ then
     echo "Connection failed."
 fi
 echo Done.
+
+echo
+read -n1 -srp "Press any key to stop the server."

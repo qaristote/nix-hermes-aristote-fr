@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = {
@@ -10,6 +10,7 @@ in {
 
   services.searx = {
     enable = true;
+    package = pkgs.searxng;
 
     runInUwsgi = true;
     uwsgiConfig = {
@@ -27,7 +28,8 @@ in {
       };
       search = {
         autocomplete = "wikipedia";
-        default_lang = "en-EN";
+        default_lang = "en-US";
+        formats = [ "html" "json" ]; 
       };
       server = {
         secret_key = "@SECRET_KEY@";

@@ -25,7 +25,7 @@ in {
             # proxy_set_header X-Script-Name   /;
           '';
         };
-        "/static/".alias = "${pkgs.searx}/share/static/";
+        "/static/".alias = "${cfg.searx.package}/share/static/";
       };
       forceSSL = true;
       enableACME = true;

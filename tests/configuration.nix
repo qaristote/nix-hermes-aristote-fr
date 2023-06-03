@@ -34,7 +34,6 @@ in {
   services.nginx.virtualHosts = {
     quentin = nginxMakeLocal 8080;
     searx = nginxMakeLocal 8081;
-    money = nginxMakeLocal 8082;
     rss = nginxMakeLocal 8083;
     webkeydirectory = nginxMakeLocal 8084;
   };

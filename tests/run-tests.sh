@@ -24,7 +24,6 @@ echo Checking that all the services are running :
 declare -A PORTS
 PORTS[quentin]=8080
 PORTS[searx]=8081
-PORTS[money]=8082
 PORTS[rss]=8083
 PORTS[openpgpkey]=8084
 for SERVICE in "${!PORTS[@]}"

@@ -39,4 +39,6 @@ in {
       enableACME = true;
     };
   };
+
+  personal.monitoring.services = [ "phpfpm-rss-bridge" ];
 }

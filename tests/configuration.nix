@@ -38,7 +38,12 @@ in {
     webkeydirectory = nginxMakeLocal 8084;
   };
 
-  environment.etc."searx/secrets".text = ''
-    SECRET_KEY=secret_key
-  '';
+  environment.etc = {
+    "searx/secrets".text = ''
+      SECRET_KEY=secret_key
+    '';
+    "msmtp/secrets".text = ''
+      password
+    '';
+  };
 }

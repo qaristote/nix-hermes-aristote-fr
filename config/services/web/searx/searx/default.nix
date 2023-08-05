@@ -29,7 +29,7 @@ in {
       search = {
         autocomplete = "wikipedia";
         default_lang = "en-US";
-        formats = [ "html" "json" ]; 
+        formats = [ "html" "json" ];
       };
       server = {
         secret_key = "@SECRET_KEY@";
@@ -53,4 +53,6 @@ in {
       ];
     };
   };
+
+  personal.monitoring.services = [ "searx-init" ];
 }

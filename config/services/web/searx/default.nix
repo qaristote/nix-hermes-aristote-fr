@@ -30,4 +30,6 @@ in {
       forceSSL = true;
       enableACME = true;
     };
+
+  personal.monitoring.services = [ "uwsgi" ];
 }

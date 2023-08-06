@@ -28,7 +28,7 @@ in {
       };
       search = {
         autocomplete = "wikipedia";
-        default_lang = "en-US";
+        default_lang = "all";
         formats = [ "html" "json" ];
       };
       server = {

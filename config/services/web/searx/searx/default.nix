@@ -54,5 +54,5 @@ in {
     };
   };
 
-  personal.monitoring.services = [ "searx-init" ];
+  systemd.services.searx-init.personal.monitor = true;
 }

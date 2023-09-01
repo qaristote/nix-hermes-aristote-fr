@@ -31,5 +31,5 @@ in {
       enableACME = true;
     };
 
-  personal.monitoring.services = [ "uwsgi" ];
+  systemd.services.uwsgi.personal.monitor = true;
 }

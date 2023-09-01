@@ -20,7 +20,7 @@
               personal-webpage.overlays.default
               # TODO the order shouldn't matter, yet this overlay doesn't work
               # if it comes first
-              my-nixpkgs.overlays.default
+              my-nixpkgs.overlays.personal
               (_: prev: {
                 inherit (nixpkgs-unstable.legacyPackages."${prev.system}")
                   filtron;

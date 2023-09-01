@@ -34,5 +34,5 @@
     '';
   };
 
-  personal.monitoring.services = [ "nginx" ];
+  systemd.services.nginx.personal.monitor = true;
 }

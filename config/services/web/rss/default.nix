@@ -40,5 +40,5 @@ in {
     };
   };
 
-  personal.monitoring.services = [ "phpfpm-rss-bridge" ];
+  systemd.services.phpfpm-rss-bridge.personal.monitor = true;
 }

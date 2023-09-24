@@ -21,10 +21,6 @@ in {
       }
       # Cinema
       {
-        name = "WhatsOnMubi";
-        source = ./WhatsOnMubiBridge.php;
-      }
-      {
         name = "ParisCineInfo";
         source = ./ParisCineInfoBridge.php;
       }

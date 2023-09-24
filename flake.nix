@@ -17,7 +17,7 @@
           my-nixpkgs.nixosModules.personal
           ({ ... }: {
             nixpkgs.overlays = [
-              personal-webpage.overlays.default
+              (self: _: { personal = { inherit (personal-webpage.packages."${self.system}") webpage; };})
               # TODO the order shouldn't matter, yet this overlay doesn't work
               # if it comes first
               my-nixpkgs.overlays.personal

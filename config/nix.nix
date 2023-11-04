@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   personal.nix = {
@@ -8,4 +8,7 @@
     flake = "git+file:///etc/nixos/";
   };
   nix.settings.max-jobs = lib.mkDefault 1;
+
+  system.autoUpgrade.flags =
+    pkgs.personal.lib.updateInputFlag "nixpkgs-unstable";
 }

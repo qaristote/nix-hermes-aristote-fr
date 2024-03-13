@@ -11,4 +11,14 @@
 
   system.autoUpgrade.flags =
     pkgs.personal.lib.updateInputFlag "nixpkgs-unstable";
+
+  systemd.services.nixos-upgrade = {
+    # restart at most once every hour
+    serviceConfig = {
+      Restart = "on-failure";
+      RestartSec = "5sec";
+    };
+    startLimitBurst = 1;
+    startLimitIntervalSec = 3600;
+  };
 }

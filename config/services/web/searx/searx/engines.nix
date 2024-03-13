@@ -47,10 +47,11 @@ let
 in {
   services.searx.settings.engines = (disable [
     # general
-    "google"
     "bing"
+    "brave"
     "currency"
     "dictzone"
+    "google"
     # files
     "btdigg"
     # images

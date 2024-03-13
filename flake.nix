@@ -6,11 +6,10 @@
     };
     my-nixpkgs.url = "github:qaristote/my-nixpkgs";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11-small";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable-small";
   };
 
   outputs =
-    { self, nixpkgs, nixpkgs-unstable, my-nixpkgs, personal-webpage, ... }: {
+    { self, nixpkgs, my-nixpkgs, personal-webpage, ... }: {
       nixosConfigurations = let
         system = "x86_64-linux";
         commonModules = [
@@ -21,10 +20,6 @@
               # TODO the order shouldn't matter, yet this overlay doesn't work
               # if it comes first
               my-nixpkgs.overlays.personal
-              (_: prev: {
-                inherit (nixpkgs-unstable.legacyPackages."${prev.system}")
-                  filtron;
-              })
             ];
           })
         ];

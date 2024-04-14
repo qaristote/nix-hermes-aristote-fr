@@ -3,10 +3,12 @@
 
 function cleanup {
     echo
+    popd >/dev/null
     echo Shutting down container ...
     sudo nixos-container stop hermes
 }
 
+pushd $(dirname $0) >/dev/null
 echo Stopping container for update ...
 sudo nixos-container stop hermes || exit 2
 echo Updating container ...
@@ -66,7 +68,7 @@ echo Done.
 
 echo
 echo Checking custom RSS bridges :
-BRIDGES="$(ls config/services/web/rss/*Bridge.php | xargs basename -s Bridge.php)"
+BRIDGES="$(ls ../config/services/web/rss/*Bridge.php | xargs basename -s Bridge.php)"
 for BRIDGE in $BRIDGES
 do
     echo Checking bridge $BRIDGE ...
@@ -80,7 +82,7 @@ echo Done.
 
 echo
 echo Checking web keys directory :
-KEYS="$(ls config/services/web/webkeydirectory/hu)"
+KEYS="$(ls ../config/services/web/webkeydirectory/hu)"
 for KEY in $KEYS
 do
     echo Checking key $KEY ...

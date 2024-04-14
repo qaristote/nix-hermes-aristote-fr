@@ -19,11 +19,6 @@ in {
         name = "MaisonDeLaRadio";
         source = ./MaisonDeLaRadioBridge.php;
       }
-      # Cinema
-      {
-        name = "ParisCineInfo";
-        source = ./ParisCineInfoBridge.php;
-      }
     ];
     virtualHost = "rss";
   };

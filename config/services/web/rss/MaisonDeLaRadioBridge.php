@@ -1,12 +1,12 @@
 <?php
 
 $GLOBALS['DATE_FORMATTER'] = new IntlDateFormatter(
-    "fr-FR",
+    'fr-FR',
     IntlDateFormatter::FULL,
-    IntlDateFormatter::NONE,
+    IntlDateFormatter::SHORT,
     'Etc/UTC',
     IntlDateFormatter::GREGORIAN,
-    'dd MMMM y'
+    "dd MMMM y EEEE hh'h'mm"
 );
 
 class MaisonDeLaRadioBridge extends XPathAbstract {
@@ -128,7 +128,7 @@ class MaisonDeLaRadioBridge extends XPathAbstract {
     }
 
     protected function getExpressionItemTimestamp() {
-        return 'normalize-space(string(' . self::XPATH_EXPRESSION_ITEM_TIMESTAMP . '))';
+        return 'normalize-space(concat(string(' . self::XPATH_EXPRESSION_ITEM_TIMESTAMP . '), .//div[@class="d-flex flex-column"]/div[1]))';
     }
     protected function formatItemTimestamp($value) {
         return $GLOBALS['DATE_FORMATTER']->parse($value);

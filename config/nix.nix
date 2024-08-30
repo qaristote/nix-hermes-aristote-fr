@@ -1,11 +1,10 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   personal.nix = {
     enable = true;
-    autoUpgrade = true;
+    autoUpgrade = {
+      enable = true;
+      autoUpdateInputs = ["nixpkgs" "nixpkgs-unstable"];
+    };
     gc.enable = true;
     flake = "git+file:///etc/nixos/";
   };
@@ -14,9 +13,6 @@
     setNixPath = true;
     setFlakeRegistry = true;
   };
-
-  system.autoUpgrade.flags =
-    pkgs.personal.lib.updateInputFlag "nixpkgs-unstable";
 
   systemd.services.nixos-upgrade = {
     # restart at most once every hour

@@ -19,6 +19,9 @@
     serviceConfig = {
       Restart = "on-failure";
       RestartSec = "5sec";
+      MemoryAccounting = true;
+      MemoryHigh = "1G";
+      MemoryMax = "1.5G";
     };
     startLimitBurst = 1;
     startLimitIntervalSec = 3600;

@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   personal.nix = {
     enable = true;
     autoUpgrade = {
@@ -25,5 +29,22 @@
     };
     startLimitBurst = 1;
     startLimitIntervalSec = 3600;
+    preStart = lib.mkAfter ''
+      echo Dry-building...
+      drvs=$(${pkgs.nixos-rebuild}/bin/nixos-rebuild dry-build --flake /etc/nixos/ 2>&1 | grep '/nix/store')
+      for drv in $drvs
+      do
+      	case $(echo $drv | cut -d'-' -f2) in
+      		gcc | rust | cmake | ghc)
+      			echo Found $drv!
+      			echo Cancelling build: it is likely to be resource-intensive.
+      		       	echo Here are the derivations that were going to be built, and the paths that were going to be downloaded:
+      			echo $drvs | tr " " "\n"
+      			exit 1
+      		;;
+      	esac
+      done
+      echo No resource-intensive building detected, good to go!
+    '';
   };
 }

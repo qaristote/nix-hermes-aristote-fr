@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
-let cfg = config.services.rss-bridge;
+{
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.services.rss-bridge;
 in {
   services.rss-bridge = {
     enable = true;
@@ -11,10 +14,6 @@ in {
         source = ./FipAlbumsBridge.php;
       }
       ## Concerts
-      {
-        name = "ParisJazzClub";
-        source = ./ParisJazzClubBridge.php;
-      }
       {
         name = "MaisonDeLaRadio";
         source = ./MaisonDeLaRadioBridge.php;

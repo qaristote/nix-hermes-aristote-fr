@@ -41,11 +41,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1725035720,
-        "narHash": "sha256-764uAk5btX4T2XQXgIi3J2duQbSqYYSVRWHAmJiepQE=",
+        "lastModified": 1730738729,
+        "narHash": "sha256-p9upl+KnE26WCdk76KgikaBPPgmLR9u4OBx+C4xAq6E=",
         "owner": "qaristote",
         "repo": "info",
-        "rev": "94398458e52445e9940aa3a3ede5c2e3821c0030",
+        "rev": "55d71faf6c7d49a2a3e40b5dc9b80a94bf71fa55",
         "type": "github"
       },
       "original": {

@@ -18,7 +18,9 @@
     setFlakeRegistry = true;
   };
 
-  systemd.services.nixos-upgrade = {
+  systemd.services.nixos-upgrade = let
+    mkForce = lib.mkOverride 51;
+  in {
     # restart at most once every hour
     serviceConfig = {
       Restart = "on-failure";
@@ -27,8 +29,8 @@
       MemoryHigh = "1G";
       MemoryMax = "1.5G";
     };
-    startLimitBurst = 1;
-    startLimitIntervalSec = 3600;
+    startLimitBurst = mkForce 1;
+    startLimitIntervalSec = mkForce 3600;
     preStart = lib.mkAfter ''
       echo Dry-building...
       drvs=$(${pkgs.nixos-rebuild}/bin/nixos-rebuild dry-build --flake /etc/nixos/ 2>&1 | grep '/nix/store')

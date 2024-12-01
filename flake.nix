@@ -5,7 +5,7 @@
       inputs.nixpkgs.follows = "/nixpkgs";
     };
     my-nixpkgs.url = "github:qaristote/my-nixpkgs";
-    nixpkgs.url = "github:NixOS/nixpkgs/release-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
   };
 
   outputs = {

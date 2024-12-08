@@ -5,7 +5,7 @@
     ./boot.nix
     ./environment.nix
     ./networking.nix
-    ./nix.nix
+    ./nix
     ./services
     ./users.nix
   ];

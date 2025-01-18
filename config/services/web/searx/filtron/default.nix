@@ -1,8 +1,7 @@
-{ ... }:
-
-{
+{...}: {
   services.filtron = {
     enable = true;
+    target.port = 8000;
     rules = [
       {
         name = "roboagent limit";
@@ -12,10 +11,10 @@
         limit = 0;
         stop = true;
         actions = [
-          { name = "log"; }
+          {name = "log";}
           {
             name = "block";
-            params = { message = "Rate limit exceeded"; };
+            params = {message = "Rate limit exceeded";};
           }
         ];
       }
@@ -27,37 +26,37 @@
         limit = 0;
         stop = true;
         actions = [
-          { name = "log"; }
+          {name = "log";}
           {
             name = "block";
-            params = { message = "Rate limit exceeded"; };
+            params = {message = "Rate limit exceeded";};
           }
         ];
       }
       {
         name = "suspiciously frequent IP";
-        filters = [ ];
+        filters = [];
         interval = 600;
         limit = 30;
-        aggregations = [ "Header:X-Forwarded-For" ];
-        actions = [{ name = "log"; }];
+        aggregations = ["Header:X-Forwarded-For"];
+        actions = [{name = "log";}];
       }
       {
         name = "search request";
-        filters = [ "Param:q" "Path=^(/|/search)$" ];
+        filters = ["Param:q" "Path=^(/|/search)$"];
         interval = 61;
         limit = 999;
         subrules = [
           {
             name = "missing Accept-Language";
-            filters = [ "!Header:Accept-Language" ];
+            filters = ["!Header:Accept-Language"];
             limit = 0;
             stop = true;
             actions = [
-              { name = "log"; }
+              {name = "log";}
               {
                 name = "block";
-                params = { message = "Rate limit exceeded"; };
+                params = {message = "Rate limit exceeded";};
               }
             ];
           }
@@ -79,26 +78,26 @@
             interval = 61;
             limit = 9;
             stop = true;
-            aggregations = [ "Header:X-Forwarded-For" ];
+            aggregations = ["Header:X-Forwarded-For"];
             actions = [
-              { name = "log"; }
+              {name = "log";}
               {
                 name = "block";
-                params = { message = "Rate limit exceeded"; };
+                params = {message = "Rate limit exceeded";};
               }
             ];
           }
           {
             name = "rss/json limit";
-            filters = [ "Param:format=(csv|json|rss)" ];
+            filters = ["Param:format=(csv|json|rss)"];
             interval = 121;
             limit = 2;
             stop = true;
             actions = [
-              { name = "log"; }
+              {name = "log";}
               {
                 name = "block";
-                params = { message = "Rate limit exceeded"; };
+                params = {message = "Rate limit exceeded";};
               }
             ];
           }
@@ -106,12 +105,12 @@
             name = "useragent limit";
             interval = 61;
             limit = 199;
-            aggregations = [ "Header:User-Agent" ];
+            aggregations = ["Header:User-Agent"];
             actions = [
-              { name = "log"; }
+              {name = "log";}
               {
                 name = "block";
-                params = { message = "Rate limit exceeded"; };
+                params = {message = "Rate limit exceeded";};
               }
             ];
           }

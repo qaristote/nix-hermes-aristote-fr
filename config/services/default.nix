@@ -1,5 +1,3 @@
-{ ... }:
-
-{
-  imports = [ ./web ];
+{...}: {
+  imports = [./mesh ./web];
 }

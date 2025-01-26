@@ -18,21 +18,11 @@
     ];
     defaultGateway = "93.95.228.1";
     nameservers = ["93.95.224.28" "93.95.224.29"];
+  };
 
-    firewall.allowedUDPPorts = [51820];
-    wireguard = {
-      enable = true;
-      interfaces.talaria = {
-        ips = ["10.13.42.1/24"];
-        listenPort = 51820;
-        privateKeyFile = "/etc/wireguard/talaria.key";
-        peers = [
-          {
-            publicKey = "RrRb7eFxyfOOM99pJyBJ9fOIaZeEllHa8kQheN99dFE=";
-            allowedIPs = ["10.13.42.2"];
-          }
-        ];
-      };
-    };
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+    disableTaildrop = true;
   };
 }

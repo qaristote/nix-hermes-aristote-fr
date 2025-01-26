@@ -42,10 +42,4 @@ in {
       '';
     };
   };
-
-  services.tailscale = {
-    enable = true;
-    openFirewall = true;
-    disableTaildrop = true;
-  };
 }

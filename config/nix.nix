@@ -25,7 +25,8 @@
 
   systemd.services.nixos-upgrade.serviceConfig = {
     MemoryAccounting = true;
-    MemoryHigh = "1G";
-    MemoryMax = "1.5G";
+    MemoryHigh = "0.9G";
+    MemoryMax = "1G";
+    MemorySwapMax = "0";
   };
 }

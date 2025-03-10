@@ -7,11 +7,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1740255237,
-        "narHash": "sha256-AOL4A5EUEKzXM0ZyfUjjKO52BTIPMSQLOiMnwz3Ps38=",
+        "lastModified": 1740644079,
+        "narHash": "sha256-4weL8wXYMLWZieU7bwa3e+GgZjaP/DU92uolve/lKZ4=",
         "owner": "qaristote",
         "repo": "info",
-        "rev": "2a3777c4639383ed7aa84462d34ca6e1c959b797",
+        "rev": "27c26fd4140f0a7795e4439d075ef81e316bc4cc",
         "type": "github"
       },
       "original": {
@@ -270,11 +270,11 @@
         "nur": "nur"
       },
       "locked": {
-        "lastModified": 1741439269,
-        "narHash": "sha256-+sD9afrwCMHJFhw630OpWmZHk4TJQVYaDI4H7fVmNNg=",
+        "lastModified": 1741602032,
+        "narHash": "sha256-IqMDQl8GNzEoZG5zDUp6+Ghvaq3E52+Cd0M0l881g1Y=",
         "owner": "qaristote",
         "repo": "my-nixpkgs",
-        "rev": "4061a1c959d01e5bb8c44c5a0fb047f83da77b89",
+        "rev": "e63906e640104a50cdc1bdd287538e130d46f4bd",
         "type": "github"
       },
       "original": {
@@ -641,11 +641,11 @@
         "uncss": "uncss"
       },
       "locked": {
-        "lastModified": 1740569391,
-        "narHash": "sha256-JvSdrBo7bHrIJoN2mLn0mKbOGpNETVeoBFxtfZlnAGs=",
+        "lastModified": 1741637191,
+        "narHash": "sha256-hzwb6JcoBHaA+Bj+bOrGIuLOHWfs2q9qBK5BgID+qCw=",
         "owner": "qaristote",
         "repo": "webpage",
-        "rev": "cfcaf4602afab8a92b57c53a6251294fedd2df36",
+        "rev": "1d7eaab2562afedf9a5f92140c77ce5cf244163f",
         "type": "github"
       },
       "original": {

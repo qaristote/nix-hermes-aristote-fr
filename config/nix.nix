@@ -1,10 +1,7 @@
 {...}: {
   personal.nix = {
     enable = true;
-    autoUpgrade = {
-      enable = true;
-      autoUpdateInputs = ["nixpkgs" "nixpkgs-unstable"];
-    };
+    autoUpgrade.enable = true;
     gc.enable = true;
     flake = "git+file:///etc/nixos/";
     remoteBuilds = {

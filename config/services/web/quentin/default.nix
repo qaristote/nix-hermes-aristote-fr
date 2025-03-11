@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -15,5 +16,5 @@
   };
 
   # automatically fetch (non-structural) website updates when updating the system
-  personal.nix.autoUpgrade.autoUpdateInputs = ["personal-webpage/data"];
+  personal.nix.autoUpgrade.autoUpdateInputs = lib.mkOptionDefault ["personal-webpage/data"];
 }

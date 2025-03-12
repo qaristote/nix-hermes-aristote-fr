@@ -13,6 +13,8 @@
     };
   };
 
+  system.autoUpgrade.allowReboot = true;
+
   # disable remote builds
   nix.settings.max-jobs = 0;
   nixpkgs.flake = {

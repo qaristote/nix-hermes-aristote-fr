@@ -32,7 +32,7 @@
         inherit system;
         modules =
           commonModules
-          ++ [./config ./config/hardware-configuration.nix];
+          ++ [./config ./config/hardware];
       };
       hermes-test = nixpkgs.lib.nixosSystem {
         inherit system;

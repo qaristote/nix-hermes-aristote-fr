@@ -16,6 +16,7 @@ class MaisonDeLaRadioBridge extends XPathAbstract {
     const MAINTAINER = 'Quentin Aristote';
     const CACHE_TIMEOUT = 3600; // 1h
 
+    const FEED_SOURCE_URL = 'https://www.maisondelaradioetdelamusique.fr/agenda';
     const XPATH_EXPRESSION_ITEM = '//div[@class="hero-header--agenda text-white"]';
     const XPATH_EXPRESSION_ITEM_TITLE = './/div[@class="Bolder-Large-XL mb-5 field_title"]';
     const XPATH_EXPRESSION_ITEM_URI = './/div[@class="d-flex"]//a/@href';
@@ -23,7 +24,7 @@ class MaisonDeLaRadioBridge extends XPathAbstract {
     const XPATH_EXPRESSION_ITEM_TIMESTAMP = './/div[@class="date text-uppercase text-center"]';
     const XPATH_EXPRESSION_ITEM_ENCLOSURES = './/div[@class="bg-wrapper"]/img/@src';
     const XPATH_EXPRESSION_ITEM_CATEGORIES = './/div[@class="SurTitre mb-5 field_event_type"]/text()';
-        
+
     const PARAMETERS = array(
         '' => array (
             'type' => array(

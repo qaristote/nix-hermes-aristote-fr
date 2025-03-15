@@ -8,6 +8,10 @@ in {
   services.rss-bridge = {
     enable = true;
     extraBridges = [
+      {
+        name = "Randonavigo";
+        source = ./RandonavigoBridge.php;
+      }
       # Music
       {
         name = "FipAlbums";

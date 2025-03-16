@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   personal.nix = {
     enable = true;
     autoUpgrade.enable = true;
@@ -9,6 +9,7 @@
       machines.hephaistos = {
         enable = true;
         domain = "aristote.mesh";
+        user = config.networking.hostName;
       };
     };
   };

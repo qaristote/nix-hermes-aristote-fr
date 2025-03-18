@@ -52,23 +52,28 @@ in {
         let
           switch = "$RESULT/bin/switch-to-configuration";
           readlink = "${pkgs.coreutils}/bin/readlink";
+          luksCfg = config.boot.initrd.luks.devices;
         in
           if allowReboot
-          then ''
-            ${switch} boot
-            booted="$(${readlink} /run/booted-system/{initrd,kernel,kernel-modules})"
-            built="$(${readlink} /nix/var/nix/profiles/system/{initrd,kernel,kernel-modules})"
-            if [ "$booted" = "$built" ]
-            then
-              ${switch} switch
-            else
+          then
+            ''
+              ${switch} boot
+              booted="$(${readlink} /run/booted-system/{initrd,kernel,kernel-modules})"
+              built="$(${readlink} /nix/var/nix/profiles/system/{initrd,kernel,kernel-modules})"
+              if [ "$booted" = "$built" ]
+              then
+                ${switch} switch
+              else ''
+            + lib.optionalString (luksCfg ? crypt) ''
               cryptsetup --verbose luksAddKey \
                          --key-file /etc/luks/keys/master \
-                         ${config.boot.initrd.luks.devices.crypt.device} \
+                         ${luksCfg.crypt.device} \
                          /etc/luks/keys/tmp
-              shutdown -r +1
-            fi
-          ''
+            ''
+            + ''
+                shutdown -r +1
+              fi
+            ''
           else ''
             ${switch} switch
           ''

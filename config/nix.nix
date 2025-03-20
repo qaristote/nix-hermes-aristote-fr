@@ -38,6 +38,8 @@ in {
       # as remote hephaistos
       git push --force hephaistos master
     '';
+    postStop = lib.mkForce "";
+    serviceConfig.TimeoutStopSec = lib.mkForce (lib.mkOptionDefault "");
     script = lib.mkForce (let
       hephaistos = "hephaistos.aristote.mesh";
     in
@@ -53,27 +55,29 @@ in {
           switch = "$RESULT/bin/switch-to-configuration";
           readlink = "${pkgs.coreutils}/bin/readlink";
           luksCfg = config.boot.initrd.luks.devices;
+          crypt = luksCfg.crypt.device;
         in
           if allowReboot
-          then
-            ''
-              ${switch} boot
-              booted="$(${readlink} /run/booted-system/{initrd,kernel,kernel-modules})"
-              built="$(${readlink} /nix/var/nix/profiles/system/{initrd,kernel,kernel-modules})"
-              if [ "$booted" = "$built" ]
-              then
-                ${switch} switch
-              else ''
-            + lib.optionalString (luksCfg ? crypt) ''
-              cryptsetup --verbose luksAddKey \
+          then ''
+            ${switch} boot
+            booted="$(${readlink} /run/booted-system/{initrd,kernel,kernel-modules})"
+            built="$(${readlink} /nix/var/nix/profiles/system/{initrd,kernel,kernel-modules})"
+            if [ "$booted" = "$built" ]
+            then
+              ${switch} switch
+            else
+            ${lib.optionalString (luksCfg ? crypt) ''
+              cryptsetup luksAddKey ${crypt} /etc/luks/keys/tmp \
                          --key-file /etc/luks/keys/master \
-                         ${luksCfg.crypt.device} \
-                         /etc/luks/keys/tmp
-            ''
-            + ''
-                shutdown -r +1
-              fi
-            ''
+                         --verbose
+            ''}
+              shutdown -r now ${lib.optionalString (luksCfg ? crypt) ''              || \
+                            cryptsetup luksRemoveKey ${crypt} \
+                                       --key-file /etc/luks/keys/tmp \
+                                       --verbose
+            ''}
+            fi
+          ''
           else ''
             ${switch} switch
           ''

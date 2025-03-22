@@ -16,5 +16,5 @@
   };
 
   # automatically fetch (non-structural) website updates when updating the system
-  personal.nix.autoUpgrade.autoUpdateInputs = lib.mkOptionDefault ["personal-webpage/data"];
+  personal.system.autoUpgrade.autoUpdateInputs = lib.mkOptionDefault ["personal-webpage/data"];
 }

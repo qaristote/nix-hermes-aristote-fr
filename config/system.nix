@@ -10,4 +10,5 @@
     };
   };
   system.autoUpgrade.allowReboot = true;
+  personal.monitoring.enable = true;
 }

@@ -2,11 +2,14 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.services.rss-bridge;
-in {
+in
+{
   services.rss-bridge = {
     enable = true;
+    config.system.enabled_bridges = [ "Instagram" ];
     extraBridges = [
       {
         name = "Randonavigo";

@@ -2,11 +2,13 @@
   config,
   lib,
   ...
-}: let
-  nginxPorts =
-    lib.concatLists
-    (lib.mapAttrsToList (_: cfg: (builtins.map (x: x.port) cfg.listen))
-      config.services.nginx.virtualHosts);
+}:
+let
+  nginxPorts = lib.concatLists (
+    lib.mapAttrsToList (
+      _: cfg: (builtins.map (x: x.port) cfg.listen)
+    ) config.services.nginx.virtualHosts
+  );
   nginxMakeLocal = port: {
     listen = lib.mkForce [
       {
@@ -17,22 +19,27 @@
     forceSSL = lib.mkForce false;
     enableACME = lib.mkForce false;
   };
-in {
-  imports = [../config];
+in
+{
+  imports = [ ../config ];
 
   boot.isContainer = true;
 
   networking = lib.mkForce {
     domain = "aristote.vm";
 
-    interfaces = {};
+    interfaces = { };
     defaultGateway = null;
-    nameservers = [];
+    nameservers = [ ];
 
-    firewall = {allowedTCPPorts = nginxPorts;};
+    firewall = {
+      allowedTCPPorts = nginxPorts;
+    };
   };
 
-  services.filtron.rules = lib.mkForce [];
+  services.resolved.enable = lib.mkForce false;
+
+  services.filtron.rules = lib.mkForce [ ];
 
   services.rss-bridge.debug = true;
 

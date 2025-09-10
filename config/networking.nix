@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   personal.networking = {
     enable = true;
     firewall.http = true;
@@ -17,7 +18,15 @@
       }
     ];
     defaultGateway = "93.95.228.1";
-    nameservers = ["93.95.224.28" "93.95.224.29"];
+    nameservers = [
+      "93.95.224.28"
+      "93.95.224.29"
+    ];
+  };
+
+  services.resolved = {
+    enable = true;
+    dnsovertls = "opportunistic";
   };
 
   services.tailscale = {

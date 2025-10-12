@@ -1,7 +1,12 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./quentin ./rss ./searx ./webkeydirectory ];
+  imports = [
+    ./quentin
+    ./rss
+    ./searx
+    ./webkeydirectory
+  ];
 
   security.acme = {
     acceptTerms = true;

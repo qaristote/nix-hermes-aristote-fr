@@ -23,7 +23,7 @@
       "93.95.224.29"
     ];
 
-    # reroute SSH on port 2222 to hephaistos
+    # reroute SSH on port 42137 to hephaistos
     nat.enable = true;
     nftables = {
       enable = true;
@@ -31,7 +31,7 @@
         table ip nat {
           chain pre {
             type nat hook prerouting priority dstnat; policy accept;
-            iifname "ens3" tcp dport 2222 dnat to 100.64.0.3:22
+            iifname "ens3" tcp dport 42137 dnat to 100.64.0.3:22
           }
           chain post {
             type nat hook postrouting priority srcnat; policy accept;

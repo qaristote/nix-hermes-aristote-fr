@@ -1,3 +1,8 @@
-{...}: {
-  imports = [./mesh ./web];
+{ ... }:
+{
+  imports = [
+    ./mesh
+    ./sshproxy
+    ./web
+  ];
 }

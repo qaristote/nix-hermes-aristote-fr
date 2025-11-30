@@ -5,39 +5,47 @@
       inputs.nixpkgs.follows = "/nixpkgs";
     };
     my-nixpkgs.url = "github:qaristote/my-nixpkgs";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
   };
 
-  outputs = {
-    nixpkgs,
-    my-nixpkgs,
-    personal-webpage,
-    ...
-  }: {
-    nixosConfigurations = let
-      system = "x86_64-linux";
-      commonModules = [
-        my-nixpkgs.nixosModules.personal
-        ({...}: {
-          nixpkgs.overlays = [
-            (self: _: {personal = {inherit (personal-webpage.packages."${self.system}") webpage;};})
-            # TODO the order shouldn't matter, yet this overlay doesn't work
-            # if it comes first
-            my-nixpkgs.overlays.personal
+  outputs =
+    {
+      nixpkgs,
+      my-nixpkgs,
+      personal-webpage,
+      ...
+    }:
+    {
+      nixosConfigurations =
+        let
+          system = "x86_64-linux";
+          commonModules = [
+            my-nixpkgs.nixosModules.personal
+            (
+              { ... }:
+              {
+                nixpkgs.overlays = [
+                  (self: _: { personal = { inherit (personal-webpage.packages."${self.system}") webpage; }; })
+                  # TODO the order shouldn't matter, yet this overlay doesn't work
+                  # if it comes first
+                  my-nixpkgs.overlays.personal
+                ];
+              }
+            )
           ];
-        })
-      ];
-    in {
-      hermes = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules =
-          commonModules
-          ++ [./config ./config/hardware];
-      };
-      hermes-test = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = commonModules ++ [./tests/configuration.nix];
-      };
+        in
+        {
+          hermes = nixpkgs.lib.nixosSystem {
+            inherit system;
+            modules = commonModules ++ [
+              ./config
+              ./config/hardware
+            ];
+          };
+          hermes-test = nixpkgs.lib.nixosSystem {
+            inherit system;
+            modules = commonModules ++ [ ./tests/configuration.nix ];
+          };
+        };
     };
-  };
 }

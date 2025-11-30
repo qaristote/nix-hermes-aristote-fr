@@ -37,7 +37,7 @@ do
     then
         echo "Connection failed."
     else
-        echo "Up and running at $URL !" 
+        echo "Up and running at $URL !"
     fi
 done
 echo Done.

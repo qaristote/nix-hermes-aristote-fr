@@ -23,7 +23,10 @@ in
 {
   imports = [ ../config ];
 
-  boot.isContainer = true;
+  boot = {
+    isContainer = true;
+    isNspawnContainer = true;
+  };
 
   networking = lib.mkForce {
     domain = "aristote.vm";

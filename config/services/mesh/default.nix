@@ -2,11 +2,13 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.services.headscale;
   url = "mesh.${config.networking.domain}";
-in {
-  networking.firewall.allowedUDPPorts = [3478];
+in
+{
+  networking.firewall.allowedUDPPorts = [ 3478 ];
 
   services.headscale = {
     enable = true;
@@ -18,9 +20,12 @@ in {
           enabled = true;
           stun_listen_addr = "0.0.0.0:3478";
         };
-        urls = [];
+        urls = [ ];
       };
-      dns.base_domain = "aristote.mesh";
+      dns = {
+        base_domain = "aristote.mesh";
+        override_local_dns = false;
+      };
     };
   };
 

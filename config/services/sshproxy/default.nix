@@ -18,10 +18,5 @@
     Match user sshjump
       AllowTcpForwarding yes
       AllowAgentForwarding yes
-      PasswordAuthentication no
-      PermitTunnel no
-      GatewayPorts no
-      PermitTTY no
-      X11Forwarding no
   '';
 }

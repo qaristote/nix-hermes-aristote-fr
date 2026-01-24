@@ -54,6 +54,9 @@ in
     rss = nginxMakeLocal 8083;
     webkeydirectory = nginxMakeLocal 8084;
     mesh = nginxMakeLocal 8085;
+    git = nginxMakeLocal 8086 // {
+      locations."/".proxyPass = lib.mkForce "http://192.168.2.2/git/";
+    };
   };
 
   environment.etc = {

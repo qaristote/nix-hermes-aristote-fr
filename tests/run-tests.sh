@@ -28,6 +28,7 @@ PORTS[quentin]=8080
 PORTS[searx]=8081
 PORTS[rss]=8083
 PORTS[openpgpkey]=8084
+PORTS[git]=8086
 for SERVICE in "${!PORTS[@]}"
 do
     URL="http://$IP:${PORTS[$SERVICE]}/"
@@ -99,6 +100,11 @@ then
     echo "Connection failed."
 fi
 echo Done.
+
+echo
+echo Checking cgit internal hyperlinks :
+RESULT=$(curl "http://$IP:${PORTS[git]}/" $CURL_FLAGS)
+echo $RESULT | grep "=\'/git/" > /dev/null && echo "Broken hyperlinks detected."
 
 echo
 read -n1 -srp "Press any key to stop the server."

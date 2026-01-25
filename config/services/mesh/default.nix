@@ -29,6 +29,8 @@ in
     };
   };
 
+  systemd.services.headscale.personal.monitor = true;
+
   services.nginx.virtualHosts.mesh = lib.mkIf cfg.enable {
     serverName = "${url}";
     forceSSL = true;

@@ -104,7 +104,12 @@ echo Done.
 echo
 echo Checking cgit internal hyperlinks :
 RESULT=$(curl "http://$IP:${PORTS[git]}/" $CURL_FLAGS)
-echo $RESULT | grep "=\'/git/" > /dev/null && echo "Broken hyperlinks detected."
+if [[ $(echo "$RESULT" | grep "=\'/git/" > /dev/null) ]]
+then
+  echo "Broken hyperlinks detected."
+else
+  echo "The hyperlinks look fine."
+fi
 
 echo
 read -n1 -srp "Press any key to stop the server."

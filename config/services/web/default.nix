@@ -24,5 +24,4 @@
       '';
     };
   };
-  systemd.services.nginx.personal.monitor = true;
 }
